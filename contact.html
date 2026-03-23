@@ -408,10 +408,32 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
 @media(max-width:400px){
   .team-grid{grid-template-columns:1fr!important;}
 }
+/* CURRENCY TOGGLE */
+.currency-toggle{
+  display:flex;align-items:center;gap:6px;
+  position:fixed;bottom:24px;right:24px;
+  background:var(--forest);border:1.5px solid rgba(224,123,26,.5);
+  border-radius:30px;padding:6px 14px;z-index:500;
+  font-size:.75rem;font-weight:600;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:all .3s;
+}
+.currency-toggle:hover{border-color:var(--gold);background:#243A18;}
+.ct-pkr,.ct-usd{padding:4px 10px;border-radius:20px;transition:all .2s;color:var(--muted);}
+.ct-pkr.active,.ct-usd.active{background:var(--gold);color:var(--dark2);}
+.usd-price{display:none;}
+body.show-usd .pkr-price{display:none;}
+body.show-usd .usd-price{display:inline;}
 </style>
 </head>
 <body>
 
+
+<div class="currency-toggle" onclick="toggleCurrency()" id="currencyBtn">
+  <span class="ct-pkr active" id="ctPkr">PKR</span>
+  <span style="color:var(--muted);font-size:.65rem;">|</span>
+  <span class="ct-usd" id="ctUsd">USD</span>
+</div>
 <div class="cur" id="cur"></div>
 <div class="cur-r" id="curR"></div>
 
@@ -430,6 +452,9 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
     <a href="skardu.html">Skardu</a>
     <a href="swat.html">Swat</a>
     <a href="astore.html">Astore</a>
+    <a href="gwadar.html">Gwadar</a>
+    <a href="bahawalpur.html">Bahawalpur</a>
+    <a href="mohenjo-daro.html">Mohenjo-daro</a>
     <a href="contact.html" class="drawer-cta">Contact Us</a>
   </div>
   <ul class="nav-links">
@@ -720,6 +745,15 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Currency toggle
+let _showUsd = false;
+function toggleCurrency(){
+  _showUsd = !_showUsd;
+  document.body.classList.toggle('show-usd', _showUsd);
+  document.getElementById('ctPkr').classList.toggle('active', !_showUsd);
+  document.getElementById('ctUsd').classList.toggle('active', _showUsd);
+}
+</script><script>
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 document.addEventListener('mousemove',e=>{

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gwadar Tours 2025 — Leventure | Pearl of the Arabian Sea</title>
+<meta name="description" content="Explore Gwadar tour packages from PKR 22,000 / $79. Visit Hammerhead Beach, Astola Island, Princess of Hope, Hingol National Park. Book with Leventure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#E07B1A;--gold2:#F5A623;
+  --dark:#1A1A12;--dark2:#111109;
+  --forest:#1E2A14;
+  --cream:#F5EFE0;
+  --muted:rgba(245,239,224,0.55);
+  --green:#2C4A1E;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark2);color:var(--cream);overflow-x:hidden;cursor:pointer;}
+/* CURSOR */
+.cur,.cur-r{display:none;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;background:#1E2A14;border-bottom:3px solid var(--gold);transition:all .3s;}
+nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--cream);text-decoration:none;padding:0 26px;height:60px;display:flex;align-items:center;background:var(--gold);flex-shrink:0;}
+.nav-logo span{font-style:italic;}
+.nav-links{display:flex;list-style:none;flex:1;}
+.nav-links a{display:flex;align-items:center;height:60px;padding:0 14px;color:var(--cream);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;transition:all .25s;border-right:1px solid rgba(255,255,255,.06);position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .25s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(224,123,26,.12);color:var(--gold2);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-cta{background:var(--gold)!important;color:var(--dark2)!important;font-weight:600!important;padding:0 20px!important;border-right:none!important;margin-left:auto;}
+.nav-cta::after{display:none!important;}
+/* Hamburger */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1100;background:none;border:none;}
+.ham span{display:block;width:24px;height:2px;background:var(--cream);border-radius:2px;transition:all .3s;}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(14,22,8,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(-12px);transition:opacity .3s,transform .3s;}
+.nav-drawer.open{opacity:1;transform:translateY(0);}
+.nav-drawer a{display:block;width:100%;text-align:center;padding:14px 24px;color:var(--cream);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid rgba(245,239,224,.07);transition:background .2s;}
+.nav-drawer a:hover{color:var(--gold2);background:rgba(224,123,26,.08);}
+.nav-drawer .drawer-cta{margin-top:16px;background:var(--gold);color:var(--dark2)!important;border-radius:8px;width:calc(100% - 48px);font-weight:700;border-bottom:none!important;}
+/* CURRENCY TOGGLE */
+.currency-toggle{
+  display:flex;align-items:center;gap:6px;
+  position:fixed;bottom:24px;right:24px;
+  background:var(--forest);border:1.5px solid rgba(224,123,26,.5);
+  border-radius:30px;padding:6px 14px;z-index:500;
+  font-size:.75rem;font-weight:600;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:all .3s;
+}
+.currency-toggle:hover{border-color:var(--gold);background:#243A18;}
+.ct-pkr,.ct-usd{padding:4px 10px;border-radius:20px;transition:all .2s;color:var(--muted);}
+.ct-pkr.active,.ct-usd.active{background:var(--gold);color:var(--dark2);}
+.usd-price{display:none;}
+body.show-usd .pkr-price{display:none;}
+body.show-usd .usd-price{display:inline;}
+/* HERO */
+.page-hero{min-height:90vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding-top:60px;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 70% 30%,rgba(74,140,200,.5) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 60% at 20% 65%,rgba(29,100,158,.35) 0%,transparent 50%),
+    linear-gradient(155deg,#060C18 0%,#0A1830 30%,#0E2040 55%,#060C18 100%);
+  animation:slowZoom 22s ease-in-out infinite alternate;
+}
+@keyframes slowZoom{0%{transform:scale(1.03);}100%{transform:scale(1.08) translateX(-10px);}}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(4,10,18,.85) 0%,rgba(4,10,18,.55) 55%,rgba(4,10,18,.2) 100%),linear-gradient(to top,rgba(4,8,16,.98) 0%,rgba(4,8,16,.3) 40%,transparent 65%);}
+/* Ocean waves SVG */
+.hero-waves{position:absolute;bottom:70px;left:0;right:0;height:30%;opacity:.55;}
+.hero-content{position:relative;z-index:2;padding:0 80px 80px;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,239,224,.38);margin-bottom:18px;}
+.breadcrumb a{color:rgba(245,239,224,.38);text-decoration:none;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb span{color:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,7rem);font-weight:900;line-height:.9;letter-spacing:-.04em;color:var(--cream);margin-bottom:16px;}
+.hero h1 em{color:var(--gold);font-style:italic;display:block;}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:28px;}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.hpill{display:inline-flex;align-items:center;gap:6px;background:rgba(245,239,224,.08);border:1px solid rgba(245,239,224,.15);padding:6px 14px;border-radius:20px;font-size:.72rem;color:var(--muted);}
+.hpill strong{color:var(--gold2);}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark2);padding:14px 32px;border-radius:6px;font-weight:700;font-size:.88rem;text-decoration:none;transition:all .3s;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--cream);border:1.5px solid rgba(245,239,224,.25);padding:14px 28px;border-radius:6px;font-size:.88rem;text-decoration:none;transition:all .3s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+/* STAT BAR */
+.hero-bar{position:relative;z-index:3;background:rgba(10,18,30,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(74,140,200,.2);display:flex;padding:0 80px;}
+.hstat{padding:18px 40px 18px 0;border-right:1px solid rgba(255,255,255,.08);margin-right:40px;}
+.hstat:last-child{border-right:none;margin:0;}
+.h-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold2);line-height:1;}
+.h-l{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+/* OVERVIEW */
+.overview{padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;background:var(--dark);}
+.ov-text .label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.ov-text .label::before{content:'◆';font-size:.4rem;}
+.ov-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:var(--cream);margin-bottom:20px;}
+.ov-text h2 em{color:var(--gold);font-style:italic;}
+.ov-text p{color:var(--muted);line-height:1.8;margin-bottom:14px;font-size:.95rem;}
+.ov-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.ov-fact{background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.07);border-radius:8px;padding:14px 16px;}
+.ov-fact h4{font-size:.9rem;font-weight:600;color:var(--cream);margin-bottom:4px;}
+.ov-fact p{font-size:.78rem;color:var(--muted);}
+.ov-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.08);border-radius:12px;padding:28px;border-top:3px solid var(--gold);}
+.ov-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--cream);margin-bottom:18px;}
+.ov-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(245,239,224,.06);}
+.ov-row:last-child{border-bottom:none;}
+.ov-row-label{font-size:.78rem;color:var(--muted);}
+.ov-row-val{font-size:.82rem;font-weight:600;color:var(--cream);}
+.ov-row-val.gold{color:var(--gold2);}
+/* PLACES */
+.places-sec{padding:80px;background:var(--forest);}
+.sec-head{margin-bottom:40px;}
+.sec-head .label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.sec-head .label::before{content:'◆';font-size:.4rem;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:var(--cream);}
+.sec-title em{color:var(--gold);font-style:italic;}
+/* I-1 style cards */
+.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.place-card{border-radius:10px;height:200px;position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(245,239,224,.07);transition:transform .3s;}
+.place-card:hover{transform:translateY(-5px);}
+.place-card::before{content:'';position:absolute;top:-40px;right:-25px;width:130px;height:320px;background:rgba(74,140,200,.06);transform:rotate(16deg);pointer-events:none;transition:background .3s;}
+.place-card:hover::before{background:rgba(74,140,200,.14);}
+.pc-num{position:absolute;top:10px;left:14px;font-family:'Playfair Display',serif;font-size:58px;font-weight:900;line-height:1;color:rgba(74,140,200,.1);letter-spacing:-.04em;transition:color .3s;z-index:1;}
+.place-card:hover .pc-num{color:rgba(74,140,200,.22);}
+.pc-alt{position:absolute;top:14px;right:14px;font-size:.65rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;text-align:right;line-height:1.5;max-width:120px;z-index:1;}
+.pc-body{position:absolute;bottom:0;left:0;right:0;padding:16px 16px 18px;z-index:1;}
+.pc-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:5px;}
+.pc-desc{font-size:.72rem;color:rgba(245,239,224,.5);line-height:1.6;}
+.place-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:linear-gradient(to right,rgba(74,140,200,.8),transparent);transition:width .4s ease;}
+.place-card:hover::after{width:100%;}
+/* PACKAGES */
+.packages-sec{padding:80px;background:var(--dark2);}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.pkg{background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.08);border-radius:12px;overflow:hidden;transition:all .3s;}
+.pkg:hover{border-color:rgba(74,140,200,.3);transform:translateY(-4px);}
+.pkg-top{padding:24px;background:rgba(74,140,200,.06);border-bottom:1px solid rgba(245,239,224,.07);}
+.pkg-badge{display:inline-block;background:var(--gold);color:var(--dark2);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:12px;}
+.pkg-icon{font-size:1.8rem;margin-bottom:8px;}
+.pkg-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--cream);}
+.pkg-meta{font-size:.75rem;color:var(--muted);margin-top:4px;}
+.pkg-body{padding:22px;}
+.pkg-desc{font-size:.83rem;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+.pkg-itinerary{margin-bottom:18px;}
+.pkg-day{display:flex;gap:12px;margin-bottom:10px;}
+.day-dot{width:22px;height:22px;border-radius:50%;background:rgba(74,140,200,.2);border:1.5px solid rgba(74,140,200,.4);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--gold2);flex-shrink:0;margin-top:1px;}
+.day-text{font-size:.78rem;color:var(--muted);line-height:1.6;}
+.day-text b{color:var(--cream);}
+.pkg-includes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.inc-tag{background:rgba(245,239,224,.06);border:1px solid rgba(245,239,224,.1);padding:4px 10px;border-radius:4px;font-size:.7rem;color:rgba(245,239,224,.7);}
+.pkg-foot{display:flex;justify-content:space-between;align-items:flex-end;padding-top:16px;border-top:1px solid rgba(245,239,224,.07);}
+.pkg-price-from{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.pkg-price-val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold2);line-height:1;}
+.btn-book{background:rgba(74,140,200,.15);color:rgba(74,140,200,.9);border:1px solid rgba(74,140,200,.3);padding:8px 18px;border-radius:5px;font-size:.76rem;font-weight:500;cursor:pointer;transition:all .3s;font-family:'DM Sans',sans-serif;}
+.btn-book:hover{background:rgba(74,140,200,.8);color:white;}
+/* ACTIVITIES */
+.act-sec{padding:80px;background:var(--dark);}
+.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;}
+.act-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.07);border-radius:10px;padding:20px;text-align:center;transition:all .3s;}
+.act-card:hover{border-color:rgba(74,140,200,.3);transform:translateY(-3px);}
+.act-icon{font-size:1.8rem;margin-bottom:10px;}
+.act-name{font-size:.88rem;font-weight:600;color:var(--cream);margin-bottom:5px;}
+.act-desc{font-size:.74rem;color:var(--muted);line-height:1.55;}
+/* INFO */
+.info-sec{padding:80px;background:var(--forest);}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.info-card{background:rgba(255,255,255,.05);border:1px solid rgba(245,239,224,.08);border-radius:10px;padding:20px;}
+.info-card h4{font-size:.85rem;font-weight:600;color:var(--gold2);margin-bottom:10px;}
+.info-card p,.info-card li{font-size:.78rem;color:var(--muted);line-height:1.7;}
+.info-card ul{padding-left:14px;}
+/* INT'L WELCOME */
+.intl-banner{padding:50px 80px;background:linear-gradient(135deg,rgba(74,140,200,.12) 0%,rgba(14,20,35,.8) 100%);border-top:1px solid rgba(74,140,200,.2);border-bottom:1px solid rgba(74,140,200,.2);}
+.intl-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.intl-text h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--cream);margin-bottom:8px;}
+.intl-text h3 em{color:var(--gold);font-style:italic;}
+.intl-text p{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:560px;}
+.intl-flags{display:flex;gap:8px;flex-wrap:wrap;}
+.intl-flag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-size:.78rem;color:var(--muted);}
+/* CTA */
+.cta-sec{padding:80px;background:var(--gold);display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+.cta-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:900;color:var(--dark2);letter-spacing:-.025em;margin-bottom:10px;}
+.cta-left p{color:rgba(26,26,18,.65);font-size:.95rem;max-width:420px;line-height:1.65;}
+.cta-right{display:flex;flex-direction:column;gap:12px;min-width:320px;}
+.cta-inp{background:rgba(255,255,255,.9);border:2px solid transparent;border-radius:6px;padding:12px 16px;font-size:.88rem;font-family:'DM Sans',sans-serif;width:100%;}
+.cta-inp:focus{outline:none;border-color:var(--dark2);}
+.btn-dark{background:var(--dark2);color:var(--cream);border:none;padding:14px;border-radius:6px;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'DM Sans',sans-serif;width:100%;}
+.btn-dark:hover{background:#2A2A1A;}
+/* FOOTER */
+footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,239,224,.06);}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:42px;}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:var(--cream);text-decoration:none;display:inline-block;margin-bottom:13px;}
+.foot-logo span{color:var(--gold);font-style:italic;}
+.foot-brand p{color:rgba(245,239,224,.37);font-size:.8rem;line-height:1.7;max-width:240px;margin-bottom:4px;}
+.foot-col h4{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.foot-col ul{list-style:none;}
+.foot-col li{margin-bottom:7px;}
+.foot-col a{color:rgba(245,239,224,.38);text-decoration:none;font-size:.8rem;transition:color .25s;}
+.foot-col a:hover{color:var(--cream);}
+.foot-bottom{border-top:1px solid rgba(245,239,224,.06);padding-top:22px;display:flex;justify-content:space-between;}
+.foot-bottom p{color:rgba(245,239,224,.2);font-size:.74rem;}
+/* REVEAL */
+.reveal{opacity:1;transform:translateY(0);}
+/* MOBILE */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1100;background:none;border:none;}
+.ham span{display:block;width:24px;height:2px;background:var(--cream);border-radius:2px;transition:all .3s;}
+@media(max-width:768px){
+  .ham{display:flex;}
+  .nav-links{display:none!important;}
+  .nav-drawer{display:flex;}
+  .page-hero,.hero-bar,.overview,.places-sec,.packages-sec,.act-sec,.info-sec,.intl-banner,.cta-sec,footer{padding-left:22px!important;padding-right:22px!important;}
+  .hero-content{padding-left:22px;padding-right:22px;padding-bottom:70px;}
+  .hero h1{font-size:clamp(2.4rem,9vw,3.6rem);}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .btn-gold,.btn-ghost{width:100%;justify-content:center;}
+  .hero-bar{flex-wrap:wrap;padding:0 22px;}
+  .hstat{flex:1 1 calc(50% - 1px);text-align:center;padding:10px 8px;margin-right:0;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
+  .hstat:nth-child(2n){border-right:none;}
+  .overview{grid-template-columns:1fr;gap:28px;}
+  .ov-facts{grid-template-columns:1fr 1fr;}
+  .places-grid{grid-template-columns:1fr;gap:12px;}
+  .place-card{height:180px;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .act-grid{grid-template-columns:1fr 1fr;}
+  .info-grid{grid-template-columns:1fr;}
+  .intl-inner{flex-direction:column;gap:20px;}
+  .cta-sec{flex-direction:column;}
+  .cta-right{min-width:unset;width:100%;}
+  .foot-grid{grid-template-columns:1fr;}
+  .foot-bottom{flex-direction:column;gap:8px;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- CURRENCY TOGGLE -->
+<div class="currency-toggle" onclick="toggleCurrency()" id="currencyBtn">
+  <span class="ct-pkr active" id="ctPkr">PKR</span>
+  <span style="color:var(--muted);font-size:.65rem;">|</span>
+  <span class="ct-usd" id="ctUsd">USD</span>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><span>Lev</span>enture</a>
+  <button class="ham" id="hamBtn" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="naran-kaghan.html">Naran Kaghan</a>
+    <a href="neelum-valley.html">Neelum Valley</a>
+    <a href="hunza.html">Hunza</a>
+    <a href="skardu.html">Skardu</a>
+    <a href="swat.html">Swat</a>
+    <a href="astore.html">Astore</a>
+    <a href="gwadar.html" class="active">Gwadar</a>
+    <a href="bahawalpur.html">Bahawalpur</a>
+    <a href="mohenjo-daro.html">Mohenjo-daro</a>
+    <a href="contact.html" class="drawer-cta">Contact Us</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="naran-kaghan.html">Naran</a></li>
+    <li><a href="hunza.html">Hunza</a></li>
+    <li><a href="skardu.html">Skardu</a></li>
+    <li><a href="swat.html">Swat</a></li>
+    <li><a href="astore.html">Astore</a></li>
+    <li><a href="gwadar.html" class="active">Gwadar</a></li>
+    <li><a href="bahawalpur.html">Bahawalpur</a></li>
+    <li><a href="mohenjo-daro.html">Mohenjo-daro</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="rgba(74,140,200,0.12)" d="M0,100 C240,160 480,40 720,100 C960,160 1200,40 1440,100 L1440,200 L0,200 Z"/>
+    <path fill="rgba(74,140,200,0.07)" d="M0,130 C300,80 600,170 900,130 C1200,90 1380,150 1440,130 L1440,200 L0,200 Z"/>
+    <path fill="rgba(6,12,26,0.85)" d="M0,160 C360,130 720,175 1080,155 C1260,145 1380,165 1440,160 L1440,200 L0,200 Z"/>
+  </svg>
+  <div class="hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Gwadar</span></div>
+    <h1>Gwadar<br><em>Coastal</em></h1>
+    <p class="hero-sub">Pakistan's "Pearl of the Arabian Sea" — pristine beaches, dramatic rock formations, deep-sea port, and the gateway to Makran Coast's untouched natural wonders.</p>
+    <div class="hero-pills">
+      <div class="hpill">🌊 Balochistan Coast</div>
+      <div class="hpill">🏖 Arabian Sea</div>
+      <div class="hpill">📅 Best Time: <strong>Oct – Mar</strong></div>
+      <div class="hpill">✈️ Direct Flights from Karachi</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#packages" class="btn-gold">View Tour Packages ›</a>
+      <a href="#places" class="btn-ghost">Explore Gwadar</a>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hstat"><div class="h-n">3</div><div class="h-l">Pristine Beaches</div></div>
+    <div class="hstat"><div class="h-n">5</div><div class="h-l">Natural Wonders</div></div>
+    <div class="hstat"><div class="h-n">0m</div><div class="h-l">Sea Level — Coastal</div></div>
+    <div class="hstat"><div class="h-n">Oct–Mar</div><div class="h-l">Best Season</div></div>
+    <div class="hstat"><div class="h-n">CPEC</div><div class="h-l">Deep Sea Port City</div></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview reveal" id="overview">
+  <div class="ov-text">
+    <div class="label">About Gwadar</div>
+    <h2>The <em>Pearl of</em><br>the Arabian Sea</h2>
+    <p>Gwadar is Pakistan's most exciting emerging destination — a coastal city on the Balochistan coast where the Arabian Sea meets dramatic Makran mountains. As the centrepiece of the China-Pakistan Economic Corridor (CPEC), it is transforming into a world-class deep-sea port city.</p>
+    <p>Beyond CPEC, Gwadar has always been a natural paradise. Golden beaches, giant rock formations shaped like hammers and sphinxes, active mud volcanoes, and Pakistan's largest offshore island are all within reach. The seafood here — fresh from the Arabian Sea every morning — is among the best in the country.</p>
+    <div class="ov-facts">
+      <div class="ov-fact"><h4>🏖 Hammerhead Peninsula</h4><p>Naturally formed peninsula surrounded by sea on 3 sides — Gwadar's most iconic landmark</p></div>
+      <div class="ov-fact"><h4>🦭 Astola Island</h4><p>Pakistan's largest offshore island — 40km from Pasni, famous for scuba diving and dolphins</p></div>
+      <div class="ov-fact"><h4>🌋 Mud Volcanoes</h4><p>Chandragup sacred mud volcano — erupts mud not lava, revered by Hindu pilgrims</p></div>
+      <div class="ov-fact"><h4>🦁 Princess of Hope</h4><p>Natural rock statue named by Angelina Jolie during a UN visit to Pakistan</p></div>
+    </div>
+  </div>
+  <div>
+    <div class="ov-card">
+      <h3>Quick Travel Guide</h3>
+      <div class="ov-row"><span class="ov-row-label">Province</span><span class="ov-row-val">Balochistan</span></div>
+      <div class="ov-row"><span class="ov-row-label">Location</span><span class="ov-row-val">Southwestern Coast</span></div>
+      <div class="ov-row"><span class="ov-row-label">Distance from Karachi</span><span class="ov-row-val">650 km (7hrs by road)</span></div>
+      <div class="ov-row"><span class="ov-row-label">Flight from Karachi</span><span class="ov-row-val">~1 hour</span></div>
+      <div class="ov-row"><span class="ov-row-label">Best Season</span><span class="ov-row-val gold">October – March</span></div>
+      <div class="ov-row"><span class="ov-row-label">Summer (Jun–Aug)</span><span class="ov-row-val">Avoid — extremely hot</span></div>
+      <div class="ov-row"><span class="ov-row-label">Language</span><span class="ov-row-val">Balochi, Brahui, Urdu</span></div>
+      <div class="ov-row"><span class="ov-row-label">Cuisine</span><span class="ov-row-val gold">Fresh Arabian Sea Seafood</span></div>
+      <div class="ov-row"><span class="ov-row-label">NOC Required</span><span class="ov-row-val">Not required for most areas</span></div>
+      <div class="ov-row"><span class="ov-row-label">Currency</span><span class="ov-row-val">PKR / USD accepted at hotels</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNATIONAL WELCOME -->
+<div class="intl-banner">
+  <div class="intl-inner">
+    <div class="intl-text">
+      <h3>Welcome, <em>International Travellers!</em></h3>
+      <p>Gwadar is increasingly visited by international travellers, journalists and CPEC researchers. All our prices are shown in both PKR and USD. Use the toggle button (bottom-right) to switch currencies. Visa-on-arrival is available for 50+ nationalities at Gwadar International Airport.</p>
+    </div>
+    <div class="intl-flags">
+      <div class="intl-flag">🇬🇧 UK Welcome</div>
+      <div class="intl-flag">🇺🇸 USA Welcome</div>
+      <div class="intl-flag">🇩🇪 Germany</div>
+      <div class="intl-flag">🇫🇷 France</div>
+      <div class="intl-flag">🇨🇳 China</div>
+      <div class="intl-flag">🇦🇪 UAE</div>
+    </div>
+  </div>
+</div>
+
+<!-- PLACES -->
+<section class="places-sec reveal" id="places">
+  <div class="sec-head">
+    <div class="label">Top Places to Visit</div>
+    <h2 class="sec-title">Six Wonders of <em>Gwadar</em></h2>
+  </div>
+  <div class="places-grid">
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(74,140,200,.28) 0%,transparent 60%),#06101E;">
+      <div class="pc-num">01</div>
+      <div class="pc-alt">Sea Level · Arabian Sea</div>
+      <div class="pc-body"><div class="pc-name">Hammerhead Beach</div><div class="pc-desc">Gwadar's iconic hammer-shaped peninsula surrounded by sea on 3 sides. Golden sands, clear waters, stunning sunset views. The old city sits on this natural wonder.</div></div>
+    </div>
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 65% 28%,rgba(29,100,158,.28) 0%,transparent 58%),#06101E;">
+      <div class="pc-num">02</div>
+      <div class="pc-alt">40km from Pasni · Island</div>
+      <div class="pc-body"><div class="pc-name">Astola Island</div><div class="pc-desc">Pakistan's largest offshore island — uninhabited, pristine, famous for scuba diving, dolphins, sea turtles and coral reefs. Accessible by boat from Pasni.</div></div>
+    </div>
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 55% 32%,rgba(74,100,50,.25) 0%,transparent 58%),#06101E;">
+      <div class="pc-num">03</div>
+      <div class="pc-alt">Natural Wonder · Hingol</div>
+      <div class="pc-body"><div class="pc-name">Princess of Hope</div><div class="pc-desc">A naturally carved rock statue in Hingol National Park — named by Angelina Jolie during her 2005 UN visit to Pakistan. One of the world's most dramatic rock formations.</div></div>
+    </div>
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(120,80,40,.25) 0%,transparent 58%),#06101E;">
+      <div class="pc-num">04</div>
+      <div class="pc-alt">Sacred Mud Volcano</div>
+      <div class="pc-body"><div class="pc-name">Chandragup Mud Volcano</div><div class="pc-desc">Revered sacred mud volcano — erupts mud not lava. Pilgrimage site for Hindus en route to Hinglaj Mata temple. Fascinating and completely unique natural phenomenon.</div></div>
+    </div>
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 58% 30%,rgba(74,140,200,.22) 0%,transparent 58%),#06101E;">
+      <div class="pc-num">05</div>
+      <div class="pc-alt">Coastal Highway · Balochistan</div>
+      <div class="pc-body"><div class="pc-name">Kund Malir Beach</div><div class="pc-desc">One of Pakistan's most beautiful beaches — pristine white sands, crystal-clear waters, on the Makran Coastal Highway. Perfect for overnight camping under the stars.</div></div>
+    </div>
+
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 62% 28%,rgba(100,60,180,.2) 0%,transparent 58%),#06101E;">
+      <div class="pc-num">06</div>
+      <div class="pc-alt">CPEC · Deep Sea Port</div>
+      <div class="pc-body"><div class="pc-name">Gwadar Port & Marine Drive</div><div class="pc-desc">Pakistan's largest and deepest seaport — centrepiece of CPEC. Marine Drive runs along the coast with stunning night views. Koh-e-Batil viewpoint overlooks everything.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-sec reveal" id="packages">
+  <div class="sec-head">
+    <div class="label">Leventure Packages 2025</div>
+    <h2 class="sec-title">Gwadar Tour <em>Packages</em></h2>
+  </div>
+  <div class="pkg-grid">
+
+    <div class="pkg">
+      <div class="pkg-top">
+        <div class="pkg-badge">Best Value</div>
+        <div class="pkg-icon">🌊</div>
+        <div class="pkg-name">Gwadar Express</div>
+        <div class="pkg-meta">3 Days · 2 Nights | Fly from Karachi</div>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-desc">Perfect introduction to Gwadar — beaches, viewpoints, fresh seafood and Hammerhead Peninsula. Fly in, explore, fly out. Ideal for first-time visitors.</p>
+        <div class="pkg-itinerary">
+          <div class="pkg-day"><div class="day-dot">1</div><div class="day-text"><b>Fly Karachi → Gwadar.</b> Hotel check-in. Evening Marine Drive + Sunset Park. Hammerhead Beach at dusk. Fresh seafood dinner.</div></div>
+          <div class="pkg-day"><div class="day-dot">2</div><div class="day-text"><b>Gwadar Full Day.</b> Koh-e-Batil viewpoint. Sur Bandar Beach. Gwadar Port view. Fish Harbour for lunch. Pishukan coastal village.</div></div>
+          <div class="pkg-day"><div class="day-dot">3</div><div class="day-text"><b>Morning free → Fly back.</b> Shahi Bazar visit. Ganz beach. Afternoon flight Gwadar → Karachi.</div></div>
+        </div>
+        <div class="pkg-includes">
+          <span class="inc-tag">✈️ Return Flight</span><span class="inc-tag">🏨 2 Nights</span>
+          <span class="inc-tag">🍽 Breakfast</span><span class="inc-tag">🚗 Transport</span>
+          <span class="inc-tag">🧭 Local Guide</span>
+        </div>
+        <div class="pkg-foot">
+          <div>
+            <div class="pkg-price-from">Starting From</div>
+            <div class="pkg-price-val">
+              <span class="pkr-price">PKR 22,000<small style="font-size:.7rem;font-weight:400">/person</small></span>
+              <span class="usd-price">$79<small style="font-size:.7rem;font-weight:400">/person</small></span>
+            </div>
+          </div>
+          <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-top">
+        <div class="pkg-badge" style="background:#185FA5;color:white;">Bestseller</div>
+        <div class="pkg-icon">🏖</div>
+        <div class="pkg-name">Gwadar Coastal Complete</div>
+        <div class="pkg-meta">5 Days · 4 Nights | Road + Coastal</div>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-desc">The complete Gwadar experience — includes Makran Coastal Highway drive, Kund Malir Beach camping, Princess of Hope, Chandragup mud volcano and Astola Island boat trip.</p>
+        <div class="pkg-itinerary">
+          <div class="pkg-day"><div class="day-dot">1</div><div class="day-text"><b>Karachi → Ormara.</b> Depart early, Makran Coastal Highway, Ormara Beach stop. Overnight Ormara.</div></div>
+          <div class="pkg-day"><div class="day-dot">2</div><div class="day-text"><b>Kund Malir + Hingol.</b> Kund Malir Beach. Princess of Hope. Sphinx of Balochistan. Chandragup mud volcano.</div></div>
+          <div class="pkg-day"><div class="day-dot">3</div><div class="day-text"><b>Arrive Gwadar.</b> Hammerhead Beach. Fish Harbour. Sunset Park. Marine Drive evening.</div></div>
+          <div class="pkg-day"><div class="day-dot">4</div><div class="day-text"><b>Astola Island boat trip.</b> Pasni to Astola — snorkelling, dolphin watching, island exploration. Overnight Gwadar.</div></div>
+          <div class="pkg-day"><div class="day-dot">5</div><div class="day-text"><b>Gwadar free morning → fly back.</b> Koh-e-Batil viewpoint. Gwadar Port views. Fly Gwadar → Karachi.</div></div>
+        </div>
+        <div class="pkg-includes">
+          <span class="inc-tag">✈️ Return Flight</span><span class="inc-tag">🏨 4 Nights</span>
+          <span class="inc-tag">🍽 All Meals</span><span class="inc-tag">⛵ Boat Trip</span>
+          <span class="inc-tag">🚗 Transport</span><span class="inc-tag">🧭 Expert Guide</span>
+        </div>
+        <div class="pkg-foot">
+          <div>
+            <div class="pkg-price-from">Starting From</div>
+            <div class="pkg-price-val">
+              <span class="pkr-price">PKR 48,000<small style="font-size:.7rem;font-weight:400">/person</small></span>
+              <span class="usd-price">$172<small style="font-size:.7rem;font-weight:400">/person</small></span>
+            </div>
+          </div>
+          <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-top">
+        <div class="pkg-badge" style="background:#0F6E56;color:white;">International</div>
+        <div class="pkg-icon">🌍</div>
+        <div class="pkg-name">Gwadar International</div>
+        <div class="pkg-meta">7 Days · 6 Nights | Premium Tour</div>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-desc">Designed for international visitors — premium accommodation, English-speaking guide, Makran coast, Balochi cultural experiences, scuba diving at Astola Island and CPEC port tour.</p>
+        <div class="pkg-itinerary">
+          <div class="pkg-day"><div class="day-dot">1</div><div class="day-text"><b>Karachi arrival + orientation.</b> City tour, overnight Karachi luxury hotel.</div></div>
+          <div class="pkg-day"><div class="day-dot">2–3</div><div class="day-text"><b>Makran Highway drive.</b> Ormara, Kund Malir, Princess of Hope, Chandragup, Astola boat trip.</div></div>
+          <div class="pkg-day"><div class="day-dot">4–5</div><div class="day-text"><b>Gwadar exploration.</b> Hammerhead, Port visit, Marine Drive, local markets, seafood experiences.</div></div>
+          <div class="pkg-day"><div class="day-dot">6</div><div class="day-text"><b>Balochi cultural day.</b> Village visits, camel ride in coastal desert, traditional music evening.</div></div>
+          <div class="pkg-day"><div class="day-dot">7</div><div class="day-text"><b>Departure.</b> Fly Gwadar → Karachi → international connection.</div></div>
+        </div>
+        <div class="pkg-includes">
+          <span class="inc-tag">✈️ All Flights</span><span class="inc-tag">🏨 6 Nights Premium</span>
+          <span class="inc-tag">🍽 All Meals</span><span class="inc-tag">🤿 Scuba Intro</span>
+          <span class="inc-tag">🧭 English Guide</span><span class="inc-tag">🐪 Camel Ride</span>
+        </div>
+        <div class="pkg-foot">
+          <div>
+            <div class="pkg-price-from">Starting From</div>
+            <div class="pkg-price-val">
+              <span class="pkr-price">PKR 85,000<small style="font-size:.7rem;font-weight:400">/person</small></span>
+              <span class="usd-price">$304<small style="font-size:.7rem;font-weight:400">/person</small></span>
+            </div>
+          </div>
+          <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="act-sec reveal">
+  <div class="sec-head">
+    <div class="label">What to Do</div>
+    <h2 class="sec-title">Gwadar <em>Activities</em></h2>
+  </div>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-icon">🤿</div><div class="act-name">Scuba Diving</div><div class="act-desc">Astola Island's crystal-clear waters, coral reefs and diverse marine life. Beginner and advanced dives available.</div></div>
+    <div class="act-card"><div class="act-icon">🦭</div><div class="act-name">Dolphin Watching</div><div class="act-desc">Plumbeous dolphins are common in Gwadar Bay — boat tours run daily from the fish harbour.</div></div>
+    <div class="act-card"><div class="act-icon">🎣</div><div class="act-name">Deep Sea Fishing</div><div class="act-desc">Charter boats for tuna, grouper and king fish in the Arabian Sea. Fresh catch for dinner.</div></div>
+    <div class="act-card"><div class="act-icon">🏕</div><div class="act-name">Beach Camping</div><div class="act-desc">Overnight camping at Kund Malir Beach under a star-filled Makran sky — magical experience.</div></div>
+    <div class="act-card"><div class="act-icon">🚤</div><div class="act-name">Boat Trips</div><div class="act-desc">Pasni to Astola Island boat journey — snorkelling, island exploration and sea turtle spotting.</div></div>
+    <div class="act-card"><div class="act-icon">🏔</div><div class="act-name">Koh-e-Batil Hike</div><div class="act-desc">500+ steps to the summit — panoramic views of Gwadar city and the Arabian Sea from the top.</div></div>
+    <div class="act-card"><div class="act-icon">🌅</div><div class="act-name">Sunset at Hammerhead</div><div class="act-desc">Gwadar's world-class sunsets from Sunset Park at the tip of the Hammerhead peninsula.</div></div>
+    <div class="act-card"><div class="act-icon">🦞</div><div class="act-name">Seafood Trail</div><div class="act-desc">Fresh lobster, prawns, crab and kingfish straight from the morning catch at Gwadar's fish harbour.</div></div>
+  </div>
+</section>
+
+<!-- PRACTICAL INFO -->
+<section class="info-sec reveal">
+  <div class="sec-head">
+    <div class="label">Travel Essentials</div>
+    <h2 class="sec-title">Practical <em>Information</em></h2>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>🛫 How to Get There</h4>
+      <ul>
+        <li>PIA & Serene Air fly Karachi → Gwadar daily (~1hr)</li>
+        <li>Makran Coastal Highway by road (~7hrs from Karachi)</li>
+        <li>Visa-on-arrival for 50+ nationalities at Gwadar Airport</li>
+        <li>International Airport — direct charter flights available</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>🏨 Where to Stay</h4>
+      <ul>
+        <li>PC Hotel Gwadar — hilltop, best views in city</li>
+        <li>Golden Crown Hotel — central, mid-range</li>
+        <li>Luxus Gwadar — near port, modern</li>
+        <li>Kund Malir — basic guesthouses + camping</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>⚠️ Important Tips</h4>
+      <ul>
+        <li>Avoid June–September (extreme heat 45°C+)</li>
+        <li>Carry extra cash — few ATMs beyond Gwadar city</li>
+        <li>Respect local Balochi culture and dress modestly</li>
+        <li>Book boat trips 1 day in advance at harbour</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>💱 For International Visitors</h4>
+      <ul>
+        <li>USD widely accepted at hotels and major shops</li>
+        <li>Exchange available at Gwadar Airport and PC Hotel</li>
+        <li>1 USD ≈ 280 PKR (March 2026)</li>
+        <li>Tipping recommended — 10% for guides and drivers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec reveal" id="cta">
+  <div class="cta-left">
+    <h2>Ready to Explore Gwadar?</h2>
+    <p>Get a free personalised itinerary and price quote from Leventure. We handle everything — flights, hotels, boat trips, guides and all logistics.</p>
+  </div>
+  <div class="cta-right">
+    <input type="text" class="cta-inp" placeholder="Your full name">
+    <input type="tel" class="cta-inp" placeholder="WhatsApp / Phone number">
+    <select class="cta-inp" style="cursor:pointer;appearance:none;">
+      <option>Select a package...</option>
+      <option>Gwadar Express (3 Days) — PKR 22,000 / $79</option>
+      <option>Gwadar Coastal Complete (5 Days) — PKR 48,000 / $172</option>
+      <option>Gwadar International (7 Days) — PKR 85,000 / $304</option>
+      <option>Custom Package</option>
+    </select>
+    <input type="text" class="cta-inp" placeholder="Preferred travel dates">
+    <button class="btn-dark">Get Free Quote →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="foot-logo" href="index.html"><span>Lev</span>enture</a>
+      <p>Founded by <strong style="color:var(--cream)">Usman Ahmad</strong> — Pakistan's trusted tour operator. Fully licensed & registered.</p>
+      <p style="font-size:.76rem;color:rgba(245,239,224,.38);margin-top:6px;">📞 0321-5884031</p>
+      <p style="font-size:.76rem;color:rgba(245,239,224,.32);">✉ leventuretourism@gmail.com</p>
+    </div>
+    <div class="foot-col"><h4>Destinations</h4><ul>
+      <li><a href="naran-kaghan.html">Naran Kaghan</a></li>
+      <li><a href="hunza.html">Hunza Valley</a></li>
+      <li><a href="skardu.html">Skardu Valley</a></li>
+      <li><a href="swat.html">Swat & Kalam</a></li>
+      <li><a href="astore.html">Astore Valley</a></li>
+      <li><a href="gwadar.html">Gwadar Coast</a></li>
+      <li><a href="bahawalpur.html">Bahawalpur</a></li>
+      <li><a href="mohenjo-daro.html">Mohenjo-daro</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Gwadar Packages</h4><ul>
+      <li><a href="#packages">Gwadar Express</a></li>
+      <li><a href="#packages">Coastal Complete</a></li>
+      <li><a href="#packages">International Tour</a></li>
+      <li><a href="#cta">Custom Package</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Quick Links</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">About Us</a></li>
+      <li><a href="#places">Places to Visit</a></li>
+      <li><a href="#cta">Contact Us</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2025 Leventure.fun — All Rights Reserved | Founded by Usman Ahmad</p>
+    <p style="color:rgba(245,239,224,.2);font-size:.74rem;">Gwadar · Balochistan Coast · Arabian Sea</p>
+  </div>
+</footer>
+
+<script>
+// Currency toggle
+let showUsd = false;
+function toggleCurrency(){
+  showUsd = !showUsd;
+  document.body.classList.toggle('show-usd', showUsd);
+  document.getElementById('ctPkr').classList.toggle('active', !showUsd);
+  document.getElementById('ctUsd').classList.toggle('active', showUsd);
+}
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60);
+});
+// Hamburger
+function toggleMenu(){
+  document.getElementById('hamBtn').classList.toggle('open');
+  const d = document.getElementById('navDrawer');
+  d.classList.toggle('open');
+  document.body.style.overflow = d.classList.contains('open') ? 'hidden' : '';
+}
+document.querySelectorAll('.nav-drawer a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('hamBtn').classList.remove('open');
+    document.getElementById('navDrawer').classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+</script>
+</body>
+</html>

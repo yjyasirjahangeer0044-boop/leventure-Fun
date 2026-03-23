@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neelum Valley Tours 2025 — Leventure</title>
-<meta name="description" content="Explore Neelum Valley Azad Kashmir tour packages from PKR 14,000. Visit Arang Kel, Ratti Gali Lake, Sharda, Keran & more. Book with Leventure.">
+<meta name="description" content="Explore Neelum Valley Azad Kashmir tour packages from PKR 15,400. Visit Arang Kel, Ratti Gali Lake, Sharda, Keran & more. Book with Leventure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
@@ -490,10 +490,32 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
   .act-grid{grid-template-columns:1fr!important;}
   .ov-facts{grid-template-columns:1fr!important;}
 }
+/* CURRENCY TOGGLE */
+.currency-toggle{
+  display:flex;align-items:center;gap:6px;
+  position:fixed;bottom:24px;right:24px;
+  background:var(--forest);border:1.5px solid rgba(224,123,26,.5);
+  border-radius:30px;padding:6px 14px;z-index:500;
+  font-size:.75rem;font-weight:600;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:all .3s;
+}
+.currency-toggle:hover{border-color:var(--gold);background:#243A18;}
+.ct-pkr,.ct-usd{padding:4px 10px;border-radius:20px;transition:all .2s;color:var(--muted);}
+.ct-pkr.active,.ct-usd.active{background:var(--gold);color:var(--dark2);}
+.usd-price{display:none;}
+body.show-usd .pkr-price{display:none;}
+body.show-usd .usd-price{display:inline;}
 </style>
 </head>
 <body>
 
+
+<div class="currency-toggle" onclick="toggleCurrency()" id="currencyBtn">
+  <span class="ct-pkr active" id="ctPkr">PKR</span>
+  <span style="color:var(--muted);font-size:.65rem;">|</span>
+  <span class="ct-usd" id="ctUsd">USD</span>
+</div>
 <div class="cur" id="cur"></div>
 <div class="cur-r" id="curR"></div>
 
@@ -521,6 +543,9 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
     <li><a href="hunza.html">Hunza</a></li>
     <li><a href="skardu.html">Skardu</a></li>
     <li><a href="swat.html">Swat</a></li>
+    <li><a href="gwadar.html">Gwadar</a></li>
+    <li><a href="bahawalpur.html">Bahawalpur</a></li>
+    <li><a href="mohenjo-daro.html">Mohenjo-daro</a></li>
     <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
@@ -584,7 +609,7 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
       <div class="ov-card-row"><span class="ov-card-key">Open Season</span><span class="ov-card-val gold">April — October</span></div>
       <div class="ov-card-row"><span class="ov-card-key">Best Months</span><span class="ov-card-val gold">May · June · September</span></div>
       <div class="ov-card-row"><span class="ov-card-key">Recommended Stay</span><span class="ov-card-val">4 to 6 Days</span></div>
-      <div class="ov-card-row"><span class="ov-card-key">Packages Starting</span><span class="ov-card-val gold">PKR 14,000 / person</span></div>
+      <div class="ov-card-row"><span class="ov-card-key">Packages Starting</span><span class="ov-card-val gold">PKR 15,400 / person</span></div>
     </div>
   </div>
 </section>
@@ -679,7 +704,7 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
           <span class="inc-tag">🚡 Chairlift</span>
         </div>
         <div class="pkg-foot">
-          <div><div class="pkg-price-from">Starting From</div><div class="pkg-price-val">PKR 14,000<small style="font-size:.68rem;font-weight:400">/person</small></div></div>
+          <div><div class="pkg-price-from">Starting From</div><div class="pkg-price-val"><span class="pkr-price">PKR 15,400</span><span class="usd-price">$55</span><small style="font-size:.68rem;font-weight:400">/person</small></div></div>
           <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
         </div>
       </div>
@@ -711,7 +736,7 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
           <span class="inc-tag">🚡 Chairlift</span>
         </div>
         <div class="pkg-foot">
-          <div><div class="pkg-price-from">Starting From</div><div class="pkg-price-val">PKR 35,000<small style="font-size:.68rem;font-weight:400">/person</small></div></div>
+          <div><div class="pkg-price-from">Starting From</div><div class="pkg-price-val"><span class="pkr-price">PKR 38,500</span><span class="usd-price">$138</span><small style="font-size:.68rem;font-weight:400">/person</small></div></div>
           <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
         </div>
       </div>
@@ -743,7 +768,7 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
           <span class="inc-tag">⛺ Lake Camping</span>
         </div>
         <div class="pkg-foot">
-          <div><div class="pkg-price-from">Couple Package From</div><div class="pkg-price-val">PKR 68,000<small style="font-size:.68rem;font-weight:400">/couple</small></div></div>
+          <div><div class="pkg-price-from">Couple Package From</div><div class="pkg-price-val"><span class="pkr-price">PKR 74,800</span><span class="usd-price">$267</span><small style="font-size:.68rem;font-weight:400">/couple</small></div></div>
           <button class="btn-book" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Book Now</button>
         </div>
       </div>
@@ -818,9 +843,9 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
     <input type="tel" class="cta-inp" placeholder="WhatsApp number">
     <select class="cta-inp" style="cursor:pointer;appearance:none;">
       <option>Select a package...</option>
-      <option>Express (3 Days) — From PKR 14,000</option>
-      <option>Complete (5 Days) — From PKR 35,000</option>
-      <option>Honeymoon (5 Days) — From PKR 68,000</option>
+      <option>Express (3 Days) — From PKR 15,400</option>
+      <option>Complete (5 Days) — From PKR 38,500</option>
+      <option>Honeymoon (5 Days) — From PKR 74,800</option>
       <option>Custom — Tell me more</option>
     </select>
     <input type="text" class="cta-inp" placeholder="Preferred travel dates (e.g. June 5–10)">
@@ -862,7 +887,16 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Currency toggle
+let _showUsd = false;
+function toggleCurrency(){
+  _showUsd = !_showUsd;
+  document.body.classList.toggle('show-usd', _showUsd);
+  document.getElementById('ctPkr').classList.toggle('active', !_showUsd);
+  document.getElementById('ctUsd').classList.toggle('active', _showUsd);
+}
+</script><script>
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 document.addEventListener('mousemove',e=>{
   cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
