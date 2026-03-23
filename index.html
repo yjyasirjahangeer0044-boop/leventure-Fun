@@ -349,18 +349,62 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 .wp-attr p{font-size:.78rem;color:var(--muted);line-height:1.65;}
 
 /* TESTIMONIALS */
-.testi-sec{padding:100px 80px;background:var(--dark2);}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
-.tcard{padding:28px;background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.07);border-radius:10px;transition:all .3s;}
-.tcard:hover{border-color:rgba(224,123,26,.25);transform:translateY(-4px);}
-.tcard-stars{color:var(--gold);font-size:.9rem;margin-bottom:14px;letter-spacing:2px;}
-.tcard-text{font-size:.87rem;color:var(--muted);line-height:1.75;margin-bottom:20px;font-style:italic;}
-.tcard-text::before{content:'\201C';color:var(--gold);font-size:1.8rem;font-family:'Playfair Display',serif;line-height:0;vertical-align:-.4em;margin-right:4px;}
-.tcard-author{display:flex;align-items:center;gap:12px;}
-.tcard-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
-.tcard-name{font-size:.86rem;font-weight:600;color:var(--cream);}
-.tcard-dest{font-size:.72rem;color:var(--gold);letter-spacing:.06em;}
+.testi-sec{padding:100px 80px;background:var(--dark2);overflow:hidden;}
+.testi-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;gap:24px;flex-wrap:wrap;}
+.testi-badge{background:rgba(224,123,26,.12);border:1px solid rgba(224,123,26,.3);border-radius:12px;padding:20px 24px;text-align:center;flex-shrink:0;}
+.tb-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--gold);line-height:1;}
+.tb-label{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;line-height:1.5;}
+/* Marquee */
+.tmarquee-wrap{overflow:hidden;position:relative;margin-bottom:0;}
+.tmarquee-wrap::before,.tmarquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.tmarquee-wrap::before{left:0;background:linear-gradient(to right,var(--dark2),transparent);}
+.tmarquee-wrap::after{right:0;background:linear-gradient(to left,var(--dark2),transparent);}
+.tmarquee{display:flex;gap:16px;width:max-content;animation:marqueeL 50s linear infinite;}
+.tmarquee-rev{animation:marqueeR 55s linear infinite;}
+.tmarquee:hover,.tmarquee-rev:hover{animation-play-state:paused;}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tcard{width:300px;flex-shrink:0;padding:22px;background:rgba(255,255,255,.04);border:1px solid rgba(245,239,224,.07);border-top:3px solid rgba(224,123,26,.3);border-radius:12px;transition:border-color .3s;}
+.tcard:hover{border-top-color:var(--gold);}
+.tcard-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.tcard-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:rgba(245,239,224,.8);flex-shrink:0;}
+.tcard-name{font-size:.88rem;font-weight:600;color:var(--cream);line-height:1.2;}
+.tcard-date{font-size:.68rem;color:rgba(245,239,224,.35);margin-top:2px;}
+.tcard-stars{color:var(--gold);font-size:.78rem;letter-spacing:2px;margin-left:auto;flex-shrink:0;}
+.tcard-text{font-size:.82rem;color:var(--muted);line-height:1.75;font-style:italic;}
+.testi-footer{margin-top:40px;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:rgba(224,123,26,.08);border:1px solid rgba(224,123,26,.2);border-radius:10px;flex-wrap:wrap;gap:14px;}
+.testi-footer span{color:var(--cream);font-size:.88rem;font-weight:500;}
 
+
+/* TESTIMONIALS MARQUEE AUTO-SCROLL */
+
+/* Facebook screenshot cards */
+.fb-card{
+  flex-shrink:0;
+  width:340px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(245,239,224,.1);
+  background:rgba(255,255,255,.96);
+}
+.fb-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+}
+
+.tmarquee-wrap{overflow:hidden;position:relative;margin-bottom:16px;}
+.tmarquee-wrap::before,.tmarquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.tmarquee-wrap::before{left:0;background:linear-gradient(to right,var(--dark2),transparent);}
+.tmarquee-wrap::after{right:0;background:linear-gradient(to left,var(--dark2),transparent);}
+.tmarquee{display:flex;gap:16px;width:max-content;animation:marqueeL 50s linear infinite;}
+.tmarquee-rev{animation:marqueeR 55s linear infinite;}
+.tmarquee:hover,.tmarquee-rev:hover{animation-play-state:paused;}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tcard{width:300px!important;flex-shrink:0!important;}
+.testi-sec{overflow:hidden;}
 /* CTA */
 .cta-sec{padding:90px 80px;background:var(--gold);display:flex;justify-content:space-between;align-items:center;gap:40px;}
 .cta-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;color:var(--dark2);letter-spacing:-.025em;line-height:1.1;margin-bottom:10px;}
@@ -557,8 +601,40 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
   /* Testimonials */
   .testi-sec{padding:60px 22px;}
   .testi-grid{grid-template-columns:1fr;gap:14px;}
+  .testi-header{flex-direction:column;gap:16px;}
+  .testi-footer{flex-direction:column;gap:14px;text-align:center;}
 
-  /* CTA */
+  
+/* TESTIMONIALS MARQUEE AUTO-SCROLL */
+
+/* Facebook screenshot cards */
+.fb-card{
+  flex-shrink:0;
+  width:340px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(245,239,224,.1);
+  background:rgba(255,255,255,.96);
+}
+.fb-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+}
+
+.tmarquee-wrap{overflow:hidden;position:relative;margin-bottom:16px;}
+.tmarquee-wrap::before,.tmarquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.tmarquee-wrap::before{left:0;background:linear-gradient(to right,var(--dark2),transparent);}
+.tmarquee-wrap::after{right:0;background:linear-gradient(to left,var(--dark2),transparent);}
+.tmarquee{display:flex;gap:16px;width:max-content;animation:marqueeL 50s linear infinite;}
+.tmarquee-rev{animation:marqueeR 55s linear infinite;}
+.tmarquee:hover,.tmarquee-rev:hover{animation-play-state:paused;}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tcard{width:300px!important;flex-shrink:0!important;}
+.testi-sec{overflow:hidden;}
+/* CTA */
   .cta-sec{
     padding:50px 22px;
     flex-direction:column;
@@ -1075,35 +1151,88 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
 </section>
 
 <!-- ═══════════ TESTIMONIALS ═══════════ -->
-<section class="testi-sec reveal">
-  <div class="section-label">Traveller Reviews</div>
-  <h2 class="section-title" style="color:var(--cream)">What Our <em>Travellers Say</em></h2>
-  <p style="color:var(--muted);margin-top:12px;max-width:520px;line-height:1.75;">Real experiences from real people who have explored Pakistan's northern areas with Leventure.</p>
-  <div class="testi-grid">
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p class="tcard-text">Pakistan's Himalayas were incredibly beautiful, and Leventure designed the perfect itinerary to experience nature, culture, and food. I felt safe and welcome throughout my visit, and our guide was a wonderful host. Cannot wait to return soon!</p>
-      <div class="tcard-author">
-        <div class="tcard-av" style="background:linear-gradient(135deg,#1A3040,#2A5070)">🧔</div>
-        <div><div class="tcard-name">Adam Lancaster</div><div class="tcard-dest">Hunza + Naran — 10 Day Tour</div></div>
-      </div>
+<section class="testi-sec">
+  <div class="testi-header">
+    <div>
+      <div class="section-label">Real Traveller Experiences</div>
+      <h2 class="section-title" style="color:var(--cream)">What Our <em>Travellers Say</em></h2>
+      <p style="color:var(--muted);margin-top:12px;max-width:560px;line-height:1.75;">Real recommendations from real people who travelled with Leventure — in their own words, directly from Facebook.</p>
     </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p class="tcard-text">We went on a customised all-girls trip to Neelum Valley and it was absolutely stunning. The team is super friendly and they made the whole trip seamless and memorable. Highly recommend Leventure — especially for women travelling in groups!</p>
-      <div class="tcard-author">
-        <div class="tcard-av" style="background:linear-gradient(135deg,#2A1040,#501070)">👩</div>
-        <div><div class="tcard-name">Sara &amp; Friends</div><div class="tcard-dest">Neelum Valley — Girls Group Trip</div></div>
-      </div>
+    <div class="testi-badge">
+      <div class="tb-num">39+</div>
+      <div class="tb-label">Verified Facebook<br>Recommendations</div>
     </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p class="tcard-text">I had a family trip to Skardu for 6 days. It was an amazing experience with memories that weren't possible without the great arrangements. Deosai Plains left us completely speechless. Every single rupee was absolutely worth it!</p>
-      <div class="tcard-author">
-        <div class="tcard-av" style="background:linear-gradient(135deg,#1A2A10,#2A4020)">👨‍👩‍👧</div>
-        <div><div class="tcard-name">Bilal Akhtar Family</div><div class="tcard-dest">Skardu — 6 Day Family Package</div></div>
-      </div>
+  </div>
+
+  <!-- Row 1 — left scroll -->
+  <div class="tmarquee-wrap">
+    <div class="tmarquee" id="tm1">
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#1A3040,#2A5070)">FA</div><div><div class="tcard-name">Faisal Yaqoob Rana</div><div class="tcard-date">📘 January 15, 2025 · Mangla Resort</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure offers a thrilling experience under Usman bhai's guidance. Parasailing was the best part — next trip ka token! Everything was perfect and unforgettable."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#1A1040,#3A2060)">MA</div><div><div class="tcard-name">Muhammad Muneeb Anjum</div><div class="tcard-date">📘 January 28, 2025 · Mangla Resort</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"A very sophisticated experience. Usman Bhai has great passion to promote tourism in Pakistan. I suggest everyone to have a memorable experience with Leventure Tourism."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#2A1040,#501070)">YS</div><div><div class="tcard-name">Yogi Samia</div><div class="tcard-date">📘 December 10, 2024 · Group Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Most memorable trip of my life. I got my trip customised — beyond my expectations. Catering 20 to 25 persons and they made it look a piece of cake. I would travel with them again InshAllah."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#0A1A28,#1A3848)">SS</div><div><div class="tcard-name">Saadiya Shafi</div><div class="tcard-date">📘 October 5, 2024 · Gilgit-Baltistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Security, Entertainment, Comfort. Not just sightseeing — a whole life-experience. Usman & Sheraz listened to each of our demands and adjusted accordingly. Highly recommended."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#103828,#205040)">IR</div><div><div class="tcard-name">Iram Irshad</div><div class="tcard-date">📘 September 20, 2024 · First Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"First ever tour with Leventure — an experience of love, nature, beauty, trust. All my concerns about food and travel phobia vanished. Unforgettable memories. Thank you so much!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#201028,#402050)">AC</div><div><div class="tcard-name">AbdulSalam Chaudhary</div><div class="tcard-date">📘 October 12, 2024 · Hunza Valley</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Finest choice when it comes to travelling. After 5 days in Hunza — professional service from every angle. Affordable plans, learning-rich travelling. Big thumbs up to Usman bhai & Sheraz bhai!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#102A10,#204020)">HN</div><div><div class="tcard-name">Hadia Noor</div><div class="tcard-date">📘 December 18, 2024 · Northern Pakistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure tourism is the best in town. Their management is amazing and the way they give comfort to everyone is appreciative. By far the best trip. Highly recommended!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#101A30,#203050)">UM</div><div><div class="tcard-name">Umar Mian</div><div class="tcard-date">📘 November 22, 2024 · Pakistan Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"By far the best trip organizers in town. The way they organize the tour is exceptional. They treat you like a prime guest rather than a customer. A great addition to the tour planners."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#281018,#502030)">UH</div><div><div class="tcard-name">Umme Haziq</div><div class="tcard-date">📘 October 28, 2024 · 3rd Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"My third tour with Leventure — every time I feel more comfortable, secure and relaxed. Bonfire night, poetry, music, stories. HIGHLY RECOMMENDED! Thank you Sheraz bhai and Usman!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#2A1A10,#503020)">UA</div><div><div class="tcard-name">Usman Ahmed</div><div class="tcard-date">📘 October 15, 2024 · Hunza 5-Day</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"First ever tour with a company — Leventure Tourism. Not just a tour but a connection of beautiful people exploring Hunza together. Outstanding facilities and food. Highly recommend!"</p></div>
+
+      <!-- duplicates for seamless loop -->
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#1A3040,#2A5070)">FA</div><div><div class="tcard-name">Faisal Yaqoob Rana</div><div class="tcard-date">📘 January 15, 2025 · Mangla Resort</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure offers a thrilling experience under Usman bhai's guidance. Everything was perfect and unforgettable."</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#2A1040,#501070)">YS</div><div><div class="tcard-name">Yogi Samia</div><div class="tcard-date">📘 December 10, 2024 · Group Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Most memorable trip of my life. Beyond expectations!"</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#0A1A28,#1A3848)">SS</div><div><div class="tcard-name">Saadiya Shafi</div><div class="tcard-date">📘 October 5, 2024 · Gilgit-Baltistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Security, Entertainment, Comfort. A whole life-experience. Highly recommended."</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#103828,#205040)">IR</div><div><div class="tcard-name">Iram Irshad</div><div class="tcard-date">📘 September 20, 2024 · First Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"First ever tour — love, nature, beauty, trust. Unforgettable memories!"</p></div>
+
     </div>
+  </div>
+
+  <!-- Row 2 — right scroll -->
+  <div class="tmarquee-wrap" style="margin-top:16px;">
+    <div class="tmarquee tmarquee-rev" id="tm2">
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#281830,#503060)">ZM</div><div><div class="tcard-name">Ziad Maliqul</div><div class="tcard-date">📘 August 18, 2024 · Pakistan Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"A very professional group — staff is extremely polite and cooperative. My tour was superb and well managed. I'll definitely opt for them again. 5 stars!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#182818,#305030)">SB</div><div><div class="tcard-name">Sohail Bashir Sohail</div><div class="tcard-date">📘 July 11, 2024 · Pakistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure Tourism is name of love, trust, caring & sharing. CEO Usman Ahmed is so cooperative, supportive and caring. Highly recommended — tour with Leventure Tourism. Stay Blessed!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#0A2030,#184060)">FA</div><div><div class="tcard-name">Farqualeet Ali</div><div class="tcard-date">📘 June 5, 2024 · Naran & Ziarat</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure's motto is 'Learn with adventure' — they fulfil that promise. I've been to Naran and Ziarat. The most stress free adventure. No hiccups in travel or accommodation whatsoever."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#102820,#205040)">KS</div><div><div class="tcard-name">Khurram Shahzad</div><div class="tcard-date">📘 May 8, 2024 · Kalash Valley</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Visited Kalash Valley with Leventure Tourism — enjoyed so much. Management and timing is amazing. I could not have enjoyed this trip as much alone. Highly recommended!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#1A0A28,#381848)">MS</div><div><div class="tcard-name">Muhammad Asif Sharif</div><div class="tcard-date">📘 April 20, 2024 · First Experience</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"First experience with Leventure Tourism. Highly satisfied with the services. Their management was just brilliant. They fulfilled all commitments. I highly recommend Leventure Tourism."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#102030,#204050)">SW</div><div><div class="tcard-name">Showana Gull</div><div class="tcard-date">📘 January 7, 2024 · Pakistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Excellent service and response. Overall experience was really good. Transport, food were great. It was safe, I had a lot of fun — the amount charged was so worth the services provided!"</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#201818,#403030)">JN</div><div><div class="tcard-name">Jamila Noor</div><div class="tcard-date">📘 November 3, 2023 · Group of 26</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"First trip with Leventure — 26 people, managed very well. Tour guide Usman was very cooperative. 'Learning with travel' is so true. I really enjoyed their services."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#182010,#304020)">AH</div><div><div class="tcard-name">Ayesha Haroon</div><div class="tcard-date">📘 October 31, 2023 · First Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Travelled with Leventure tourism and it was a great experience. I liked the idea of learning through travel. Well organised — the environment was just like travelling with your family."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#281020,#502040)">SB2</div><div><div class="tcard-name">Sadia Bari</div><div class="tcard-date">📘 February 3, 2024 · Family Trip</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure tourism is doing a great job. I would recommend it for a family trip."</p></div>
+
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#0A2818,#185030)">AA</div><div><div class="tcard-name">Ahtisham Ali</div><div class="tcard-date">📘 March 14, 2024 · Soon Valley</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Leventure tourism is one of the best tourism companies of Pakistan. I visited Soon Valley with Leventure. Great experience. I recommend to all of you this great tourism company!"</p></div>
+
+      <!-- duplicates for loop -->
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#281830,#503060)">ZM</div><div><div class="tcard-name">Ziad Maliqul</div><div class="tcard-date">📘 August 18, 2024 · Pakistan Tour</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Very professional group — staff extremely polite. Superb and well managed. 5 stars!"</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#182818,#305030)">SB</div><div><div class="tcard-name">Sohail Bashir Sohail</div><div class="tcard-date">📘 July 11, 2024 · Pakistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Name of love, trust, caring & sharing. CEO Usman Ahmed so cooperative. Highly recommended!"</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#102820,#205040)">KS</div><div><div class="tcard-name">Khurram Shahzad</div><div class="tcard-date">📘 May 8, 2024 · Kalash Valley</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Management and timing is amazing. Couldn't have done it alone. Highly recommended!"</p></div>
+      <div class="tcard"><div class="tcard-top"><div class="tcard-av" style="background:linear-gradient(135deg,#102030,#204050)">SW</div><div><div class="tcard-name">Showana Gull</div><div class="tcard-date">📘 January 7, 2024 · Pakistan</div></div><div class="tcard-stars">★★★★★</div></div><p class="tcard-text">"Excellent service. Transport, food were great. The amount charged was so worth it!"</p></div>
+
+    </div>
+  </div>
+
+  <div class="testi-footer">
+    <span>⭐ 39+ Five-Star Recommendations on Facebook · Real travellers, real experiences</span>
+    <a href="contact.html" class="btn-gold" style="text-decoration:none;font-size:.84rem;padding:12px 24px;">Book Your Tour →</a>
   </div>
 </section>
 
