@@ -209,22 +209,90 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 .link-more{color:var(--gold);text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(224,123,26,.35);padding-bottom:2px;transition:all .3s;cursor:pointer;}
 .link-more:hover{gap:12px;border-color:var(--gold);}
 .dest-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px;}
-.dc{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;}
-.dc--big{grid-row:1/3;}
-.dc-bg{position:absolute;inset:0;transition:transform .55s ease;}
-.dc:hover .dc-bg{transform:scale(1.07);}
-.dc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,6,.9) 0%,rgba(10,20,6,.3) 45%,transparent 70%);}
-.dc-body{position:absolute;bottom:0;left:0;right:0;padding:22px;}
-.dc-tag{display:inline-block;background:var(--gold);color:var(--dark2);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:7px;}
-.dc-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--cream);line-height:1.2;}
-.dc--big .dc-name{font-size:2rem;}
-.dc-sub{font-size:.76rem;color:rgba(245,239,224,.6);margin-top:4px;}
-.dc-pill{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:rgba(245,239,224,.12);padding:5px 12px;border-radius:20px;font-size:.7rem;color:rgba(245,239,224,.75);}
-.bg-hunza{background:linear-gradient(150deg,#0A1525,#0D2040,#152A50);}
-.bg-naran{background:linear-gradient(150deg,#0A1A06,#1A3010,#243818);}
-.bg-neelum{background:linear-gradient(150deg,#051A12,#0A2E1E,#102818);}
-.bg-skardu{background:linear-gradient(150deg,#1A1206,#2A1E08,#302210);}
-.bg-swat{background:linear-gradient(150deg,#0A1A06,#122010,#1A2C14);}
+/* a wrapper must fill grid cell fully */
+.dest-grid > a{display:block;text-decoration:none;color:inherit;min-height:260px;}
+.dest-grid > a.dc-big-wrap{grid-row:1/3;min-height:534px;}
+.dc{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;width:100%;height:100%;min-height:260px;}
+.dc--big{grid-row:1/3;min-height:534px;height:100%;}
+.dc-bg{position:absolute;inset:0;transition:transform .6s ease;}
+.dc:hover .dc-bg{transform:scale(1.06);}
+.dc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,12,3,.95) 0%,rgba(6,12,3,.5) 40%,rgba(6,12,3,.15) 75%,transparent 100%);}
+.dc-body{position:absolute;bottom:0;left:0;right:0;padding:24px;}
+.dc-tag{display:inline-block;background:var(--gold);color:var(--dark2);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:8px;}
+.dc-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--cream);line-height:1.1;}
+.dc--big .dc-name{font-size:2.2rem;}
+.dc-sub{font-size:.76rem;color:rgba(245,239,224,.65);margin-top:5px;line-height:1.5;}
+.dc-pill{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:rgba(245,239,224,.13);backdrop-filter:blur(6px);padding:5px 13px;border-radius:20px;font-size:.7rem;color:rgba(245,239,224,.8);border:1px solid rgba(245,239,224,.1);}
+
+/* Vivid scenery backgrounds — visible on all screens */
+.bg-hunza{
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 25%, rgba(74,140,200,.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 75%, rgba(10,30,70,.7) 0%, transparent 55%),
+    linear-gradient(160deg,#0A1830 0%,#0F2545 35%,#183660 60%,#0A1525 100%);
+}
+.bg-hunza::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 100% 40% at 50% 35%, rgba(255,200,120,.08) 0%, transparent 70%),
+    linear-gradient(to bottom, rgba(74,140,200,.15) 0%, transparent 50%);
+  pointer-events:none;
+}
+.bg-naran{
+  background:
+    radial-gradient(ellipse 70% 55% at 65% 28%, rgba(120,190,100,.5) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 70% at 15% 70%, rgba(10,50,10,.6) 0%, transparent 52%),
+    linear-gradient(155deg,#081808 0%,#0F2A0A 30%,#183A12 55%,#0A2008 100%);
+}
+.bg-naran::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 35% at 50% 30%, rgba(180,230,140,.12) 0%, transparent 65%);
+  pointer-events:none;
+}
+.bg-neelum{
+  background:
+    radial-gradient(ellipse 75% 50% at 60% 30%, rgba(60,180,130,.5) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 65% at 20% 68%, rgba(5,50,28,.65) 0%, transparent 52%),
+    linear-gradient(148deg,#051A10 0%,#082A18 30%,#103820 58%,#061A0E 100%);
+}
+.bg-neelum::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 30% at 50% 25%, rgba(100,220,170,.1) 0%, transparent 60%);
+  pointer-events:none;
+}
+.bg-skardu{
+  background:
+    radial-gradient(ellipse 80% 55% at 65% 30%, rgba(200,150,60,.45) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 70% at 18% 72%, rgba(50,30,5,.6) 0%, transparent 52%),
+    linear-gradient(152deg,#1A1005 0%,#2A1A06 32%,#382410 58%,#1A1005 100%);
+}
+.bg-skardu::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 75% 35% at 52% 28%, rgba(230,180,80,.1) 0%, transparent 62%);
+  pointer-events:none;
+}
+.bg-swat{
+  background:
+    radial-gradient(ellipse 72% 52% at 62% 27%, rgba(80,170,90,.48) 0%, transparent 56%),
+    radial-gradient(ellipse 52% 68% at 16% 70%, rgba(8,40,8,.6) 0%, transparent 52%),
+    linear-gradient(150deg,#081208 0%,#102010 32%,#183018 58%,#0A180A 100%);
+}
+.bg-astore{
+  background:
+    radial-gradient(ellipse 72% 52% at 60% 28%, rgba(200,130,50,.45) 0%, transparent 56%),
+    radial-gradient(ellipse 55% 68% at 18% 70%, rgba(40,20,5,.6) 0%, transparent 52%),
+    linear-gradient(153deg,#180F04 0%,#281808 32%,#382210 58%,#180F04 100%);
+}
+.bg-astore::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 75% 32% at 50% 25%, rgba(220,170,70,.1) 0%, transparent 60%);
+  pointer-events:none;
+}
+.bg-swat::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 78% 32% at 50% 26%, rgba(140,210,120,.1) 0%, transparent 62%);
+  pointer-events:none;
+}
 
 /* TOURS */
 .tours-sec{padding:100px 80px;background:var(--dark2);}
@@ -688,7 +756,7 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
   </div>
   <div class="dest-grid">
     <!-- HUNZA big -->
-    <a href="hunza.html" style="text-decoration:none;color:inherit;"><div class="dc dc--big">
+    <a href="hunza.html" class="dc-big-wrap" style="text-decoration:none;color:inherit;"><div class="dc dc--big">
       <div class="dc-bg bg-hunza">
         <svg style="position:absolute;bottom:0;width:100%;opacity:.5" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0D2040" stop-opacity=".6"/><stop offset="100%" stop-color="#03080F" stop-opacity="1"/></linearGradient></defs>
@@ -709,7 +777,7 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
       </div>
     </div></a>
     <!-- NARAN -->
-    <a href="naran-kaghan.html" style="text-decoration:none;color:inherit;display:block;"><div class="dc">
+    <a href="naran-kaghan.html" style="text-decoration:none;color:inherit;display:block;height:260px;"><div class="dc" style="height:100%;">
       <div class="dc-bg bg-naran">
         <svg style="position:absolute;bottom:0;width:100%;opacity:.5" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
           <polygon fill="rgba(20,50,10,0.85)" points="0,170 50,100 100,125 160,70 220,108 280,85 300,95 300,170"/>
@@ -723,9 +791,9 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
         <div class="dc-sub">KPK · Saif ul Malook Lake · Babusar Pass</div>
         <div class="dc-pill">From PKR 13,500 / person</div>
       </div>
-    </div>
+    </div></a>
     <!-- SKARDU -->
-    <a href="skardu.html" style="text-decoration:none;color:inherit;display:block;"><div class="dc">
+    <a href="skardu.html" style="text-decoration:none;color:inherit;display:block;height:260px;"><div class="dc" style="height:100%;">
       <div class="dc-bg bg-skardu">
         <svg style="position:absolute;bottom:0;width:100%;opacity:.5" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
           <polygon fill="rgba(50,30,8,0.85)" points="0,170 60,100 110,125 170,75 230,115 280,90 300,100 300,170"/>
@@ -739,9 +807,9 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
         <div class="dc-sub">Gilgit-Baltistan · K2 Base Camp · Deosai Plains</div>
         <div class="dc-pill">From PKR 25,000 / person</div>
       </div>
-    </div>
+    </div></a>
     <!-- NEELUM -->
-    <a href="neelum-valley.html" style="text-decoration:none;color:inherit;display:block;"><div class="dc">
+    <a href="neelum-valley.html" style="text-decoration:none;color:inherit;display:block;height:260px;"><div class="dc" style="height:100%;">
       <div class="dc-bg bg-neelum">
         <svg style="position:absolute;bottom:0;width:100%;opacity:.5" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
           <polygon fill="rgba(5,40,20,0.85)" points="0,170 55,100 105,128 165,72 225,110 280,88 300,98 300,170"/>
@@ -754,9 +822,9 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
         <div class="dc-sub">Azad Kashmir · Arang Kel · Ratti Gali Lake</div>
         <div class="dc-pill">From PKR 11,500 / person</div>
       </div>
-    </div>
+    </div></a>
     <!-- SWAT -->
-    <a href="swat.html" style="text-decoration:none;color:inherit;display:block;"><div class="dc">
+    <a href="swat.html" style="text-decoration:none;color:inherit;display:block;height:260px;"><div class="dc" style="height:100%;">
       <div class="dc-bg bg-swat">
         <svg style="position:absolute;bottom:0;width:100%;opacity:.5" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
           <polygon fill="rgba(15,40,10,0.85)" points="0,170 60,105 115,128 170,78 225,112 278,90 300,100 300,170"/>
@@ -769,7 +837,7 @@ footer{background:#090906;padding:70px 80px 36px;border-top:1px solid rgba(245,2
         <div class="dc-sub">KPK · Kalam · Malam Jabba · Mahodand Lake</div>
         <div class="dc-pill">Year-Round Accessible</div>
       </div>
-    </div>
+    </div></a>
   </div>
 </section>
 
