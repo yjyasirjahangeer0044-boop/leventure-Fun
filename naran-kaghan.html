@@ -87,17 +87,65 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 /* PLACES */
 .places-sec{padding:90px 80px;background:var(--forest);}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:42px;}
-.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.place-card{border-radius:10px;overflow:hidden;position:relative;height:300px;cursor:pointer;transition:transform .4s;}
-.place-card:nth-child(1),.place-card:nth-child(2){height:360px;}
-.place-card:hover{transform:translateY(-6px);}
-.place-card:hover .pc-bg{transform:scale(1.07);}
-.pc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
-.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,10,2,.93) 0%,rgba(4,10,2,.3) 50%,transparent 78%);}
-.pc-body{position:absolute;bottom:0;left:0;right:0;padding:20px;}
-.pc-alt{display:inline-flex;align-items:center;gap:5px;background:rgba(224,123,26,.85);color:var(--dark2);font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:3px;margin-bottom:6px;}
-.pc-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--cream);line-height:1.2;margin-bottom:5px;}
-.pc-desc{font-size:.74rem;color:rgba(245,239,224,.62);line-height:1.6;}
+/* ═══ PLACE CARDS — I-1 Style ═══ */
+.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.place-card{
+  border-radius:10px;height:200px;position:relative;overflow:hidden;
+  cursor:pointer;transition:transform .3s, border-color .3s;
+  border:1px solid rgba(245,239,224,.07);
+}
+.place-card:hover{transform:translateY(-5px);}
+/* diagonal slash */
+.place-card::before{
+  content:'';position:absolute;top:-40px;right:-25px;
+  width:130px;height:320px;
+  background:rgba(224,123,26,.06);
+  transform:rotate(16deg);pointer-events:none;
+  transition:background .3s;
+}
+.place-card:hover::before{background:rgba(224,123,26,.13);}
+/* faded number */
+.pc-num{
+  position:absolute;top:10px;left:14px;
+  font-family:'Playfair Display',serif;
+  font-size:58px;font-weight:900;line-height:1;
+  color:rgba(224,123,26,.1);
+  letter-spacing:-.04em;
+  transition:color .3s;
+  z-index:1;
+}
+.place-card:hover .pc-num{color:rgba(224,123,26,.18);}
+/* tag top-right */
+.pc-alt{
+  position:absolute;top:14px;right:14px;
+  font-size:.65rem;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;
+  text-align:right;line-height:1.5;
+  max-width:120px;z-index:1;
+}
+/* bottom content */
+.pc-body{
+  position:absolute;bottom:0;left:0;right:0;padding:16px 16px 18px;
+  z-index:1;
+}
+.pc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:900;
+  color:var(--cream);line-height:1.1;
+  margin-bottom:5px;
+  letter-spacing:-.01em;
+}
+.pc-name em{color:var(--gold);font-style:italic;}
+.pc-desc{font-size:.72rem;color:rgba(245,239,224,.5);line-height:1.6;}
+/* bottom gold line */
+.place-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;
+  height:2px;width:0;
+  background:linear-gradient(to right,var(--gold),transparent);
+  transition:width .4s ease;
+}
+.place-card:hover::after{width:100%;}
 .bg-saif{background-image:url('https://images.unsplash.com/photo-1631005078217-3e741c0e3c84?w=800&q=80&auto=format&fit=crop');}
 .bg-babusar{background-image:url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=800&q=80&auto=format&fit=crop');}
 .bg-shogran{background-image:url('https://images.unsplash.com/photo-1605539006939-e9d4f02e8b90?w=800&q=80&auto=format&fit=crop');background-position:center 30%;}
@@ -502,55 +550,56 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
       <h2 class="sec-title">Must-Visit Places in<br><em>Naran Kaghan</em></h2>
     </div>
   </div>
-  <div class="places-grid">
-    <div class="place-card">
-      <div class="pc-bg bg-saif"></div><div class="pc-ov"></div>
+    <div class="places-grid">
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(74,127,100,.25) 0%,transparent 60%),#0E1A0A;">
+      <div class="pc-num">01</div>
+      <div class="pc-alt">3,224m · Alpine Lake</div>
       <div class="pc-body">
-        <div class="pc-alt">3,224m Above Sea Level</div>
         <div class="pc-name">Saif ul Malook Lake</div>
-        <div class="pc-desc">Pakistan's most iconic alpine lake — turquoise waters reflecting Malika Parbat. Jeep ride from Naran (45 min). Boat rides available. Where legend says fairies descend at midnight.</div>
+        <div class="pc-desc">Lush turquoise waters reflecting Malika Parbat. Jeep ride 45min from Naran. Boat rides available. Where fairies descend at midnight.</div>
       </div>
     </div>
-    <div class="place-card">
-      <div class="pc-bg bg-babusar"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 65% 28%,rgba(200,150,60,.22) 0%,transparent 58%),#0E1A0A;">
+      <div class="pc-num">02</div>
+      <div class="pc-alt">4,173m · Highest Point</div>
       <div class="pc-body">
-        <div class="pc-alt">4,173m — Kaghan's Highest Point</div>
         <div class="pc-name">Babusar Top</div>
-        <div class="pc-desc">The crown of Kaghan Valley — a high mountain pass connecting Naran to the Karakoram Highway. Snow even in summer. 360° panoramic Himalayan views. Open June to October only.</div>
+        <div class="pc-desc">Crown of Kaghan Valley — high pass connecting Naran to KKH. Snow even in summer. 360° Himalayan views. Open June–October only.</div>
       </div>
     </div>
-    <div class="place-card">
-      <div class="pc-bg bg-shogran"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 55% 32%,rgba(74,140,200,.22) 0%,transparent 58%),#0E1A0A;">
+      <div class="pc-num">03</div>
+      <div class="pc-alt">2,362m · Pine Plateau</div>
       <div class="pc-body">
-        <div class="pc-alt">2,362m · Lush Pine Plateau</div>
-        <div class="pc-name">Shogran &amp; Siri Paye</div>
-        <div class="pc-desc">Shogran is a scenic pine-covered hill station 65 km before Naran. Just 6 km above, Siri Paye meadows offer wildflowers and stunning views of Makra Peak. Perfect for a relaxed family overnight.</div>
+        <div class="pc-name">Shogran & Siri Paye</div>
+        <div class="pc-desc">Pine-covered hill station 65km before Naran. Siri Paye meadows above — wildflowers and stunning Makra Peak views. Perfect family overnight.</div>
       </div>
     </div>
-    <div class="place-card">
-      <div class="pc-bg bg-lulusar"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(130,80,200,.2) 0%,transparent 58%),#0E1A0A;">
+      <div class="pc-num">04</div>
+      <div class="pc-alt">3,410m · Source of Kunhar</div>
       <div class="pc-body">
-        <div class="pc-alt">3,410m · Source of Kunhar River</div>
         <div class="pc-name">Lulusar Lake</div>
-        <div class="pc-desc">Kaghan Valley's largest natural lake — a sparkling blue gem 48 km from Naran on the Babusar road. Known for its mirror-like stillness and absolute silence. A must-stop en route to Babusar Top.</div>
+        <div class="pc-desc">Kaghan's largest natural lake — sparkling blue gem 48km from Naran. Mirror-like stillness and absolute silence. Must-stop en route Babusar Top.</div>
       </div>
     </div>
-    <div class="place-card">
-      <div class="pc-bg bg-lalazar"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 58% 30%,rgba(80,160,90,.2) 0%,transparent 58%),#0E1A0A;">
+      <div class="pc-num">05</div>
+      <div class="pc-alt">3,294m · Alpine Meadow</div>
       <div class="pc-body">
-        <div class="pc-alt">3,294m · Alpine Meadow</div>
         <div class="pc-name">Lalazar Plateau</div>
-        <div class="pc-desc">A hidden plateau of wildflowers and dense deodar forests, 21 km before Naran. Accessible only by 4×4 jeep. Sweeping mountain views all around — one of KPK's most photogenic hidden gems.</div>
+        <div class="pc-desc">Hidden plateau of wildflowers and deodar forests. 4×4 jeep only. Sweeping mountain views — one of KPK's most photogenic hidden gems.</div>
       </div>
     </div>
-    <div class="place-card">
-      <div class="pc-bg bg-ansoo"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 62% 28%,rgba(180,120,40,.2) 0%,transparent 58%),#0E1A0A;">
+      <div class="pc-num">06</div>
+      <div class="pc-alt">4,245m · Teardrop Shape</div>
       <div class="pc-body">
-        <div class="pc-alt">4,245m · Teardrop Shape</div>
         <div class="pc-name">Ansoo Lake</div>
-        <div class="pc-desc">Discovered in 1993, this teardrop-shaped alpine lake sits near Malika Parbat. Reached by a challenging half-day trek from Saif ul Malook. The shape visible from aerial view — one of Pakistan's most dramatic hikes.</div>
+        <div class="pc-desc">Teardrop-shaped alpine lake near Malika Parbat. Challenging half-day trek from Saif ul Malook. One of Pakistan's most dramatic hikes.</div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 

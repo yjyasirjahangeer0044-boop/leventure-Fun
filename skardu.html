@@ -109,17 +109,65 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 /* PLACES */
 .places-sec{padding:90px 80px;background:var(--slate);}
 .sec-head{margin-bottom:42px;}
-.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.place-card{border-radius:10px;overflow:hidden;position:relative;height:300px;cursor:pointer;transition:transform .4s;}
-.place-card:nth-child(1),.place-card:nth-child(2){height:370px;}
-.place-card:hover{transform:translateY(-6px);}
-.place-card:hover .pc-bg{transform:scale(1.07);}
-.pc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
-.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,6,14,.95) 0%,rgba(3,6,14,.32) 52%,transparent 78%);}
-.pc-body{position:absolute;bottom:0;left:0;right:0;padding:20px;}
-.pc-alt{display:inline-flex;align-items:center;gap:5px;background:rgba(224,123,26,.88);color:var(--dark2);font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:3px;margin-bottom:6px;}
-.pc-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--cream);line-height:1.2;margin-bottom:5px;}
-.pc-desc{font-size:.74rem;color:rgba(245,239,224,.62);line-height:1.6;}
+/* ═══ PLACE CARDS — I-1 Style ═══ */
+.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.place-card{
+  border-radius:10px;height:200px;position:relative;overflow:hidden;
+  cursor:pointer;transition:transform .3s, border-color .3s;
+  border:1px solid rgba(245,239,224,.07);
+}
+.place-card:hover{transform:translateY(-5px);}
+/* diagonal slash */
+.place-card::before{
+  content:'';position:absolute;top:-40px;right:-25px;
+  width:130px;height:320px;
+  background:rgba(224,123,26,.06);
+  transform:rotate(16deg);pointer-events:none;
+  transition:background .3s;
+}
+.place-card:hover::before{background:rgba(224,123,26,.13);}
+/* faded number */
+.pc-num{
+  position:absolute;top:10px;left:14px;
+  font-family:'Playfair Display',serif;
+  font-size:58px;font-weight:900;line-height:1;
+  color:rgba(224,123,26,.1);
+  letter-spacing:-.04em;
+  transition:color .3s;
+  z-index:1;
+}
+.place-card:hover .pc-num{color:rgba(224,123,26,.18);}
+/* tag top-right */
+.pc-alt{
+  position:absolute;top:14px;right:14px;
+  font-size:.65rem;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;
+  text-align:right;line-height:1.5;
+  max-width:120px;z-index:1;
+}
+/* bottom content */
+.pc-body{
+  position:absolute;bottom:0;left:0;right:0;padding:16px 16px 18px;
+  z-index:1;
+}
+.pc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:900;
+  color:var(--cream);line-height:1.1;
+  margin-bottom:5px;
+  letter-spacing:-.01em;
+}
+.pc-name em{color:var(--gold);font-style:italic;}
+.pc-desc{font-size:.72rem;color:rgba(245,239,224,.5);line-height:1.6;}
+/* bottom gold line */
+.place-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;
+  height:2px;width:0;
+  background:linear-gradient(to right,var(--gold),transparent);
+  transition:width .4s ease;
+}
+.place-card:hover::after{width:100%;}
 .bg-deosai{background-image:url('https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&q=80&auto=format&fit=crop');}
 .bg-shangrila{background-image:url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?w=800&q=80&auto=format&fit=crop');}
 .bg-shigar{background-image:url('https://images.unsplash.com/photo-1625997597688-c9aefb7e94e2?w=800&q=80&auto=format&fit=crop');}
@@ -547,62 +595,56 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
     <h2 class="sec-title">Must-Visit Places in <em>Skardu Valley</em></h2>
   </div>
 
-  <div class="places-grid">
-
-    <div class="place-card">
-      <div class="pc-bg bg-deosai"></div><div class="pc-ov"></div>
+    <div class="places-grid">
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(74,127,100,.25) 0%,transparent 60%),#100C06;">
+      <div class="pc-num">01</div>
+      <div class="pc-alt">4,114m · World's 2nd Plateau</div>
       <div class="pc-body">
-        <div class="pc-alt">4,114m · World's 2nd Highest Plateau</div>
-        <div class="pc-name">Deosai National Park</div>
-        <div class="pc-desc">Called the "Land of Giants" — a vast 3,000 km² plateau at 4,114m that erupts with wildflowers every summer and is home to the rare Himalayan Brown Bear, Snow Leopard, Tibetan wolves and marmots. Sheosar Lake sits at its heart. Accessible by 4×4 jeep (PKR 15–17K return). Open June to September only — truly one of Earth's last wild places.</div>
+        <div class="pc-name">Deosai Plains</div>
+        <div class="pc-desc">One of the world's highest plateaus — 3,000 km² of wildflower plains. Home to Himalayan brown bears. A UNESCO candidate.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-shangrila"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 65% 28%,rgba(200,150,60,.22) 0%,transparent 58%),#100C06;">
+      <div class="pc-num">02</div>
+      <div class="pc-alt">2,560m · Resort Lake</div>
       <div class="pc-body">
-        <div class="pc-alt">Heaven on Earth · Lower Kachura</div>
-        <div class="pc-name">Shangrila Resort &amp; Kachura Lakes</div>
-        <div class="pc-desc">Shangrila Resort — famously known as "Heaven on Earth" — sits beside the mirror-still Lower Kachura Lake with 70 Swiss-style cottages and sweeping Karakoram views. Just a 20-min walk away, Upper Kachura Lake is a hidden gem of crystal-clear water and pine trees, far quieter and equally stunning. One of Pakistan's most romantic destinations.</div>
+        <div class="pc-name">Shangrila & Kachura</div>
+        <div class="pc-desc">Pakistan's most romantic resort — Lower Kachura Lake with its famous plane-wreck. Upper Kachura — crystal clear and surreal.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-shigar"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 55% 32%,rgba(74,140,200,.22) 0%,transparent 58%),#100C06;">
+      <div class="pc-num">03</div>
+      <div class="pc-alt">2,500m · Silk Road Fort</div>
       <div class="pc-body">
-        <div class="pc-alt">17th Century · Serena Heritage Hotel</div>
-        <div class="pc-name">Shigar Fort &amp; Valley</div>
-        <div class="pc-desc">The 400-year-old Shigar Fort — built by the Raja of Shigar — has been meticulously restored by the Aga Khan Trust and now operates as Pakistan's most unique heritage hotel under the Serena brand. Set among apricot orchards and poplar trees in the lush Shigar Valley, 32km from Skardu. Also visit the 650-year-old Amburiq Mosque built by Sayed Ali Hamdani.</div>
+        <div class="pc-name">Shigar Fort Serena</div>
+        <div class="pc-desc">A 420-year-old royal fort converted into Pakistan's finest heritage hotel. Walk the ancient bazaar and meet local Balti craftsmen.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-khaplu"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(130,80,200,.2) 0%,transparent 58%),#100C06;">
+      <div class="pc-num">04</div>
+      <div class="pc-alt">2,928m · Royal Palace</div>
       <div class="pc-body">
-        <div class="pc-alt">115km from Skardu · Balti Heritage</div>
-        <div class="pc-name">Khaplu Valley &amp; Palace</div>
-        <div class="pc-desc">A magnificent 19th-century palace along the Shyok River, also restored as a Serena heritage hotel. Khaplu Valley itself is one of Skardu's most beautiful sub-valleys — lush orchards, the ancient 750-year-old Chaqchan Mosque, and dramatic Karakoram peaks on all sides. The drive from Skardu takes around 4 hours on a scenic road along the Shyok River.</div>
+        <div class="pc-name">Khaplu Palace</div>
+        <div class="pc-desc">Restored 19th-century palace of the Yabgo kings — now a Serena Heritage Hotel. View of Masherbrum (K1) from the terrace.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-katpana"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 58% 30%,rgba(80,160,90,.2) 0%,transparent 58%),#100C06;">
+      <div class="pc-num">05</div>
+      <div class="pc-alt">2,226m · Cold Desert</div>
       <div class="pc-body">
-        <div class="pc-alt">World's Highest Cold Desert</div>
         <div class="pc-name">Katpana Cold Desert</div>
-        <div class="pc-desc">A completely surreal landscape — golden sand dunes at 2,300m surrounded by towering snow-capped Karakoram peaks on all sides. The Sarfaranga Cold Desert near Skardu city is the only high-altitude cold desert in Pakistan and one of the most unusual landscapes in Asia. Activities include jeep desert safari (PKR 5,000), paramotoring, 4-wheeler rides and horse riding.</div>
+        <div class="pc-desc">The world's highest cold desert — sand dunes with snow-capped mountains as backdrop. 4×4 jeep adventures on the dunes.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-kachura"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 62% 28%,rgba(180,120,40,.2) 0%,transparent 58%),#100C06;">
+      <div class="pc-num">06</div>
+      <div class="pc-alt">2,500m · Ancient Fort</div>
       <div class="pc-body">
-        <div class="pc-alt">Historic Fort Above Skardu City</div>
-        <div class="pc-name">Kharpocho Fort &amp; Satpara Lake</div>
-        <div class="pc-desc">Kharpocho Fort — "King of Forts" in Balti — perches dramatically above Skardu city offering 360° panoramic views of the Indus River, the Karakoram and Himalayan ranges. A 30-min jeep ride below lies deep-blue Satpara Lake — a key water source for Skardu with stunning mountain reflections and excellent trout fishing.</div>
+        <div class="pc-name">Kharpocho Fort & Satpara Lake</div>
+        <div class="pc-desc">Rock-carved fort above Skardu town. Satpara Lake below — deep blue with trout fishing. The gateway to K2.</div>
       </div>
     </div>
-
+  </div>
   </div>
 </section>
 

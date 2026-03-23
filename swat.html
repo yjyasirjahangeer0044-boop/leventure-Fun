@@ -130,17 +130,65 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 /* PLACES */
 .places-sec{padding:90px 80px;background:var(--forest);}
 .sec-head{margin-bottom:42px;}
-.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.place-card{border-radius:10px;overflow:hidden;position:relative;height:300px;cursor:pointer;transition:transform .4s;}
-.place-card:nth-child(1),.place-card:nth-child(2){height:370px;}
-.place-card:hover{transform:translateY(-6px);}
-.place-card:hover .pc-bg{transform:scale(1.07);}
-.pc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
-.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,12,4,.95) 0%,rgba(4,12,4,.32) 52%,transparent 78%);}
-.pc-body{position:absolute;bottom:0;left:0;right:0;padding:20px;}
-.pc-alt{display:inline-flex;align-items:center;gap:5px;background:rgba(224,123,26,.88);color:var(--dark2);font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:3px;margin-bottom:6px;}
-.pc-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--cream);line-height:1.2;margin-bottom:5px;}
-.pc-desc{font-size:.74rem;color:rgba(245,239,224,.62);line-height:1.6;}
+/* ═══ PLACE CARDS — I-1 Style ═══ */
+.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.place-card{
+  border-radius:10px;height:200px;position:relative;overflow:hidden;
+  cursor:pointer;transition:transform .3s, border-color .3s;
+  border:1px solid rgba(245,239,224,.07);
+}
+.place-card:hover{transform:translateY(-5px);}
+/* diagonal slash */
+.place-card::before{
+  content:'';position:absolute;top:-40px;right:-25px;
+  width:130px;height:320px;
+  background:rgba(224,123,26,.06);
+  transform:rotate(16deg);pointer-events:none;
+  transition:background .3s;
+}
+.place-card:hover::before{background:rgba(224,123,26,.13);}
+/* faded number */
+.pc-num{
+  position:absolute;top:10px;left:14px;
+  font-family:'Playfair Display',serif;
+  font-size:58px;font-weight:900;line-height:1;
+  color:rgba(224,123,26,.1);
+  letter-spacing:-.04em;
+  transition:color .3s;
+  z-index:1;
+}
+.place-card:hover .pc-num{color:rgba(224,123,26,.18);}
+/* tag top-right */
+.pc-alt{
+  position:absolute;top:14px;right:14px;
+  font-size:.65rem;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;
+  text-align:right;line-height:1.5;
+  max-width:120px;z-index:1;
+}
+/* bottom content */
+.pc-body{
+  position:absolute;bottom:0;left:0;right:0;padding:16px 16px 18px;
+  z-index:1;
+}
+.pc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:900;
+  color:var(--cream);line-height:1.1;
+  margin-bottom:5px;
+  letter-spacing:-.01em;
+}
+.pc-name em{color:var(--gold);font-style:italic;}
+.pc-desc{font-size:.72rem;color:rgba(245,239,224,.5);line-height:1.6;}
+/* bottom gold line */
+.place-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;
+  height:2px;width:0;
+  background:linear-gradient(to right,var(--gold),transparent);
+  transition:width .4s ease;
+}
+.place-card:hover::after{width:100%;}
 .bg-malam{background-image:url('https://images.unsplash.com/photo-1605539006939-e9d4f02e8b90?w=800&q=80&auto=format&fit=crop');background-position:center 25%;}
 .bg-mahodand{background-image:url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?w=800&q=80&auto=format&fit=crop');}
 .bg-kalam{background-image:url('https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&q=80&auto=format&fit=crop');background-position:center 30%;}
@@ -599,62 +647,56 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
     <div class="label">Top Attractions</div>
     <h2 class="sec-title">Must-Visit Places in <em>Swat Valley</em></h2>
   </div>
-  <div class="places-grid">
-
-    <div class="place-card">
-      <div class="pc-bg bg-malam"></div><div class="pc-ov"></div>
+    <div class="places-grid">
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(74,127,100,.25) 0%,transparent 60%),#080E08;">
+      <div class="pc-num">01</div>
+      <div class="pc-alt">2,804m · Ski Resort</div>
       <div class="pc-body">
-        <div class="pc-alt">2,804m · Pakistan's Only Ski Resort</div>
         <div class="pc-name">Malam Jabba Ski Resort</div>
-        <div class="pc-desc">Pakistan's premier winter sports destination at 2,804m — featuring skiing, snowboarding, a thrilling chairlift, zip line, ice skating, and sledding. Built and rebuilt after militant destruction, the resort now has modern facilities and is home to 2,000-year-old Buddhist stupas. Equally beautiful in summer with forest hikes and cool breezes.</div>
+        <div class="pc-desc">Pakistan's premier ski resort — open December to March. Chairlift, snow activities, pine forest trekking in summer. Largest resort in KPK.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-mahodand"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 65% 28%,rgba(200,150,60,.22) 0%,transparent 58%),#080E08;">
+      <div class="pc-num">02</div>
+      <div class="pc-alt">3,000m · High Alpine Lake</div>
       <div class="pc-body">
-        <div class="pc-alt">3,000m · Alpine Turquoise Lake</div>
         <div class="pc-name">Mahodand Lake</div>
-        <div class="pc-desc">The crown of Kalam Valley — a stunning turquoise alpine lake at 3,000m nestled in Ushu Valley at the foot of the Hindu Kush. Reachable by a breathtaking 4×4 jeep ride through the Ushu Forest from Kalam. Boating, fishing and camping available. The journey through waterfalls and meadows is as spectacular as the lake itself.</div>
+        <div class="pc-desc">Stunning alpine lake at end of Kalam Valley — crystal clear water, trout fishing, surrounded by meadows and peaks. 4×4 required.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-kalam"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 55% 32%,rgba(74,140,200,.22) 0%,transparent 58%),#080E08;">
+      <div class="pc-num">03</div>
+      <div class="pc-alt">2,000m · Heart of Valley</div>
       <div class="pc-body">
-        <div class="pc-alt">2,100m · Northern Gateway</div>
         <div class="pc-name">Kalam Valley</div>
-        <div class="pc-desc">The gateway to Upper Swat — a charming town of wooden hotels, riverside bazaars and alpine views at 2,100m. "Kalam" means Blue Water in Pashto, named for its dazzling blue-green rivers. The junction for all upper valley trips to Mahodand, Ushu Forest, Utror Valley, Gabral and Desan Meadows. Open year-round and extremely popular in winter for snowfall.</div>
+        <div class="pc-desc">The crown of Swat — lush green valley with the Swat River rushing through. Base camp for Mahodand, Ushu Forest and Falaksair trekking.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-bahrain"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(130,80,200,.2) 0%,transparent 58%),#080E08;">
+      <div class="pc-num">04</div>
+      <div class="pc-alt">1,000m · River Towns</div>
       <div class="pc-body">
-        <div class="pc-alt">Riverside Town · Fresh Trout</div>
-        <div class="pc-name">Bahrain &amp; Madyan</div>
-        <div class="pc-desc">A picturesque riverside town midway along the Swat Valley road — famous for its colourful bazaars on the banks of the Swat River and the freshest trout in Pakistan served at riverside restaurants. The scenic drive through orchards from Mingora to Bahrain along the Swat River is one of KPK's most enjoyable road journeys.</div>
+        <div class="pc-name">Bahrain & Madyan</div>
+        <div class="pc-desc">Twin riverside towns on the main Swat road. Wooden bazaars, riverside hotels, trout farming. Bahrain's suspension bridge is iconic.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-ushu"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 58% 30%,rgba(80,160,90,.2) 0%,transparent 58%),#080E08;">
+      <div class="pc-num">05</div>
+      <div class="pc-alt">2,200m · Dense Forest</div>
       <div class="pc-body">
-        <div class="pc-alt">Dense Alpine Forest</div>
-        <div class="pc-name">Ushu Forest &amp; Utror Valley</div>
-        <div class="pc-desc">One of KPK's most beautiful forests — thick with towering blue pine, deodar cedar and silver fir trees just north of Kalam. The Utror Valley beyond Ushu is a hidden gem of wildflower meadows, traditional Pashto villages and the roaring Swat River headwaters. Excellent jeep tracks and trekking trails for adventurers.</div>
+        <div class="pc-name">Ushu Forest</div>
+        <div class="pc-desc">Ancient dense deodar cedar forest near Kalam — walks through towering trees, cool even in peak summer. Pakistan's most beautiful forest road.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-white"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 62% 28%,rgba(180,120,40,.2) 0%,transparent 58%),#080E08;">
+      <div class="pc-num">06</div>
+      <div class="pc-alt">1,070m · Royal Palace</div>
       <div class="pc-body">
-        <div class="pc-alt">1940s Royal Palace</div>
         <div class="pc-name">White Palace Marghazar</div>
-        <div class="pc-desc">Built in 1940 by the first Wali of Swat, the White Palace (Sufaid Mahal) at Marghazar is a magnificent white marble palace surrounded by lush gardens and a cool hill stream. A stunning architectural landmark set against forest-covered hillsides just 12km from Mingora. Queen Elizabeth II and several foreign dignitaries have stayed here.</div>
+        <div class="pc-desc">Wali of Swat's summer palace — a gleaming white hilltop palace now a heritage hotel. 45 minutes from Saidu Sharif.</div>
       </div>
     </div>
-
+  </div>
   </div>
 </section>
 

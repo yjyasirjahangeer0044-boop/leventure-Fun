@@ -144,18 +144,65 @@ nav.scrolled{background:rgba(20,30,12,.97);backdrop-filter:blur(18px);}
 
 /* PLACES */
 .places-sec{padding:90px 80px;background:var(--forest);}
-.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.place-card{border-radius:10px;overflow:hidden;position:relative;height:300px;cursor:pointer;transition:transform .4s;}
-.place-card:nth-child(1),.place-card:nth-child(2){height:370px;}
-.place-card:hover{transform:translateY(-6px);}
-.place-card:hover .pc-bg{transform:scale(1.07);}
-.pc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
-.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,8,4,.95) 0%,rgba(3,8,4,.3) 52%,transparent 78%);}
-.pc-body{position:absolute;bottom:0;left:0;right:0;padding:20px;}
-.pc-alt{display:inline-flex;align-items:center;gap:5px;background:rgba(224,123,26,.88);color:var(--dark2);font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:3px;margin-bottom:6px;}
-.pc-alt.red{background:rgba(192,57,43,.88);color:var(--cream);}
-.pc-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--cream);line-height:1.2;margin-bottom:5px;}
-.pc-desc{font-size:.74rem;color:rgba(245,239,224,.62);line-height:1.6;}
+/* ═══ PLACE CARDS — I-1 Style ═══ */
+.places-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.place-card{
+  border-radius:10px;height:200px;position:relative;overflow:hidden;
+  cursor:pointer;transition:transform .3s, border-color .3s;
+  border:1px solid rgba(245,239,224,.07);
+}
+.place-card:hover{transform:translateY(-5px);}
+/* diagonal slash */
+.place-card::before{
+  content:'';position:absolute;top:-40px;right:-25px;
+  width:130px;height:320px;
+  background:rgba(224,123,26,.06);
+  transform:rotate(16deg);pointer-events:none;
+  transition:background .3s;
+}
+.place-card:hover::before{background:rgba(224,123,26,.13);}
+/* faded number */
+.pc-num{
+  position:absolute;top:10px;left:14px;
+  font-family:'Playfair Display',serif;
+  font-size:58px;font-weight:900;line-height:1;
+  color:rgba(224,123,26,.1);
+  letter-spacing:-.04em;
+  transition:color .3s;
+  z-index:1;
+}
+.place-card:hover .pc-num{color:rgba(224,123,26,.18);}
+/* tag top-right */
+.pc-alt{
+  position:absolute;top:14px;right:14px;
+  font-size:.65rem;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;
+  text-align:right;line-height:1.5;
+  max-width:120px;z-index:1;
+}
+/* bottom content */
+.pc-body{
+  position:absolute;bottom:0;left:0;right:0;padding:16px 16px 18px;
+  z-index:1;
+}
+.pc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:900;
+  color:var(--cream);line-height:1.1;
+  margin-bottom:5px;
+  letter-spacing:-.01em;
+}
+.pc-name em{color:var(--gold);font-style:italic;}
+.pc-desc{font-size:.72rem;color:rgba(245,239,224,.5);line-height:1.6;}
+/* bottom gold line */
+.place-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;
+  height:2px;width:0;
+  background:linear-gradient(to right,var(--gold),transparent);
+  transition:width .4s ease;
+}
+.place-card:hover::after{width:100%;}
 .bg-fairy{background-image:url('https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&q=80&auto=format&fit=crop');background-position:center 25%;}
 .bg-nanga{background-image:url('https://images.unsplash.com/photo-1542401886-65d6c61db217?w=800&q=80&auto=format&fit=crop');background-position:center 30%;}
 .bg-rama{background-image:url('https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?w=800&q=80&auto=format&fit=crop');}
@@ -706,62 +753,56 @@ footer{background:#090906;padding:60px 80px 30px;border-top:1px solid rgba(245,2
 <section class="places-sec reveal" id="places">
   <div class="label" style="margin-bottom:14px">Top Attractions</div>
   <h2 class="sec-title" style="margin-bottom:42px">Must-Visit Places in <em>Astore Valley</em></h2>
-  <div class="places-grid">
-
-    <div class="place-card">
-      <div class="pc-bg bg-fairy"></div><div class="pc-ov"></div>
+    <div class="places-grid">
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(74,127,100,.25) 0%,transparent 60%),#0E0C08;">
+      <div class="pc-num">01</div>
+      <div class="pc-alt">3,300m · Heaven of Trekkers</div>
       <div class="pc-body">
-        <div class="pc-alt">3,300m · Heaven of Trekkers</div>
         <div class="pc-name">Fairy Meadows</div>
-        <div class="pc-desc">Named by German climbers in 1953, locally "Joot" — a lush green plateau at 3,300m offering the world's most dramatic and accessible close-up view of Nanga Parbat's north face and Raikot Glacier. Camping, cosy wooden huts, stargazing and the magical sunrise on Nanga Parbat that changes colour from black to gold are the highlights. One of Pakistan's most iconic spots.</div>
+        <div class="pc-desc">Named by German climbers in 1953 — lush green plateau offering world's most dramatic Nanga Parbat close-up. Camping & stargazing.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-nanga"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 65% 28%,rgba(200,150,60,.22) 0%,transparent 58%),#0E0C08;">
+      <div class="pc-num">02</div>
+      <div class="pc-alt">3,967m · Killer Mountain</div>
       <div class="pc-body">
-        <div class="pc-alt red">8,126m · The Killer Mountain</div>
         <div class="pc-name">Nanga Parbat Base Camp</div>
-        <div class="pc-desc">Standing face-to-face with the world's 9th highest mountain at 3,967m — accessible via a 4-hour round trek from Fairy Meadows through Bayal Camp. Cross the Raikot Glacier and arrive at the base camp where silence is broken only by distant avalanches. An experience of absolute humility before one of Earth's greatest peaks.</div>
+        <div class="pc-desc">Face-to-face with world's 9th highest peak — 4hr trek via Bayal Camp. Silence broken only by distant avalanches.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-rama"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 55% 32%,rgba(74,140,200,.22) 0%,transparent 58%),#0E0C08;">
+      <div class="pc-num">03</div>
+      <div class="pc-alt">3,500m · Glacial Alpine Lake</div>
       <div class="pc-body">
-        <div class="pc-alt">3,500m · Glacial Alpine Lake</div>
-        <div class="pc-name">Rama Lake &amp; Meadows</div>
-        <div class="pc-desc">A breathtaking glacial lake at 3,500m above Astore town, set in a natural bowl of dense forest and Nanga Parbat's sweeping southern views. The drive from Astore on a 4×4 jeep track through pine forests is itself spectacular. Camping at Rama is one of Astore's finest experiences — mirror reflections of mountains in the still lake at dawn are unforgettable.</div>
+        <div class="pc-name">Rama Lake & Meadows</div>
+        <div class="pc-desc">Breathtaking glacial lake above Astore town. Drive through pine forests on 4×4 jeep track. Mirror reflections at dawn.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-rupal"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 60% 30%,rgba(130,80,200,.2) 0%,transparent 58%),#0E0C08;">
+      <div class="pc-num">04</div>
+      <div class="pc-alt">4,600m · World's Tallest Face</div>
       <div class="pc-body">
-        <div class="pc-alt">World's Tallest Mountain Face</div>
         <div class="pc-name">Rupal Valley</div>
-        <div class="pc-desc">Nanga Parbat's Rupal Face — the world's highest mountain wall at 4,600m — looms over this extraordinary valley on the mountain's southern side. Accessible from Astore, Rupal Valley is a favourite of serious trekkers and photographers seeking the most dramatic close-up of any Himalayan peak anywhere. Lush meadows, waterfalls and glaciers round out one of Pakistan's finest valleys.</div>
+        <div class="pc-desc">Nanga Parbat's Rupal Face — world's highest mountain wall. Remote valley for serious trekkers and photographers.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-minimarg"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 58% 30%,rgba(80,160,90,.2) 0%,transparent 58%),#0E0C08;">
+      <div class="pc-num">05</div>
+      <div class="pc-alt">2,600m · Hidden Paradise</div>
       <div class="pc-body">
-        <div class="pc-alt">Hidden Paradise · Upper Astore</div>
         <div class="pc-name">Minimarg</div>
-        <div class="pc-desc">A remote and tranquil hamlet in upper Astore Valley — renowned for its carpet of wildflowers, crystal-clear streams and panoramic snow-capped vistas. Almost completely untouched by commercial tourism, Minimarg offers the authentic Astore experience: peace, solitude and landscapes of extraordinary beauty in one of Gilgit-Baltistan's least-visited corners.</div>
+        <div class="pc-desc">Remote tranquil hamlet in upper Astore — carpet of wildflowers, crystal streams, panoramic snow-capped vistas. Untouched by tourism.</div>
       </div>
     </div>
-
-    <div class="place-card">
-      <div class="pc-bg bg-deosai"></div><div class="pc-ov"></div>
+    <div class="place-card" style="background:radial-gradient(ellipse 70% 55% at 62% 28%,rgba(180,120,40,.2) 0%,transparent 58%),#0E0C08;">
+      <div class="pc-num">06</div>
+      <div class="pc-alt">4,114m · 2nd Highest Plateau</div>
       <div class="pc-body">
-        <div class="pc-alt">Entry via Astore · 4,114m Plateau</div>
-        <div class="pc-name">Deosai Plains (via Astore)</div>
-        <div class="pc-desc">Astore is one of the two main gateways to the Deosai National Park — the world's second-highest plateau at 4,114m. Entering Deosai from the Astore side (Chilam → Burzil Pass route) gives a more dramatic and far less-visited approach than the Skardu side, passing through the legendary Burzil Pass — described by travellers as one of the most beautiful places on Earth.</div>
+        <div class="pc-name">Deosai via Astore</div>
+        <div class="pc-desc">Enter Deosai from the Astore side via Burzil Pass — more dramatic and far less-visited than the Skardu approach.</div>
       </div>
     </div>
-
+  </div>
   </div>
 </section>
 
